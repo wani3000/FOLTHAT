@@ -427,9 +427,37 @@
       flex: 1;
     }
 
-    .keyvisual-card img.kv-main {
-      max-width: 90%;
-      max-height: 90%;
+    .keyvisual-card img.kv-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .keyvisual-card__symbol {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+    }
+
+    .keyvisual-card__symbol img {
+      max-width: 250px;
+      max-height: 100px;
+      object-fit: contain;
+    }
+
+    .keyvisual-card__logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+    }
+
+    .keyvisual-card__logo img {
+      max-width: 355px;
+      max-height: 60px;
       object-fit: contain;
     }
 
@@ -1014,6 +1042,16 @@
         width: 100%;
       }
 
+      .keyvisual-card__symbol img {
+        max-width: 150px;
+        max-height: 60px;
+      }
+
+      .keyvisual-card__logo img {
+        max-width: 200px;
+        max-height: 40px;
+      }
+
       /* Color Section */
       .color-section {
         padding: 0 20px;
@@ -1374,34 +1412,40 @@
     <!-- Section: Keyvisual Grid -->
     <div class="section-light">
       <section class="keyvisual-grid">
-        <!-- Row 1 -->
+        <!-- Row 1: Image + Symbol -->
         <div class="keyvisual-grid__row">
           <div class="keyvisual-card keyvisual-card--square">
-            <div class="placeholder-box">Keyvisual 1</div>
+            <img class="kv-image" src="img/keyvisual/img_keyvisual_01.png" alt="FOLTHAT Keyvisual">
           </div>
           <div class="keyvisual-card keyvisual-card--wide">
-            <div class="placeholder-box">Keyvisual 2</div>
+            <div class="keyvisual-card__symbol">
+              <img src="img/keyvisual/ic_symbol_01.svg" alt="FOLTHAT Symbol">
+            </div>
           </div>
         </div>
-        <!-- Row 2 -->
+        <!-- Row 2: Background + Symbol + Logo -->
         <div class="keyvisual-grid__row">
           <div class="keyvisual-card keyvisual-card--third">
-            <div class="placeholder-box">Keyvisual 3</div>
+            <div style="width: 100%; height: 100%; background: #f5f5f5;"></div>
           </div>
           <div class="keyvisual-card keyvisual-card--third">
-            <div class="placeholder-box">Keyvisual 4</div>
+            <div class="keyvisual-card__symbol">
+              <img src="img/keyvisual/ic_symbol_02.svg" alt="FOLTHAT Symbol">
+            </div>
           </div>
           <div class="keyvisual-card keyvisual-card--third">
-            <div class="placeholder-box">Keyvisual 5</div>
+            <div class="keyvisual-card__logo">
+              <img src="img/logo.svg" alt="FOLTHAT Logo">
+            </div>
           </div>
         </div>
-        <!-- Row 3 -->
+        <!-- Row 3: Image + Image -->
         <div class="keyvisual-grid__row">
           <div class="keyvisual-card keyvisual-card--square">
-            <div class="placeholder-box">Keyvisual 6</div>
+            <img class="kv-image" src="img/keyvisual/img_keyvisual_02.png" alt="FOLTHAT Keyvisual">
           </div>
           <div class="keyvisual-card keyvisual-card--wide">
-            <div class="placeholder-box">Keyvisual 7</div>
+            <img class="kv-image" src="img/keyvisual/img_keyvisual_02.png" alt="FOLTHAT Keyvisual">
           </div>
         </div>
       </section>

@@ -461,16 +461,6 @@
       object-fit: contain;
     }
 
-    .keyvisual-card__point {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      width: 22px;
-      height: 22px;
-      background: #2B5FED;
-      border-radius: 2px;
-    }
-
     .keyvisual-card__text {
       position: absolute;
       bottom: 50%;
@@ -482,6 +472,12 @@
       color: #000;
       text-align: center;
       line-height: 1.4;
+    }
+
+    .keyvisual-card__gray {
+      width: 100%;
+      height: 100%;
+      background: #E5E5E5;
     }
 
     .keyvisual-card img.kv-icon {
@@ -1075,13 +1071,6 @@
         max-height: 40px;
       }
 
-      .keyvisual-card__point {
-        width: 16px;
-        height: 16px;
-        top: 15px;
-        left: 15px;
-      }
-
       .keyvisual-card__text {
         font-size: 12px;
         padding: 0 20px;
@@ -1445,48 +1434,41 @@
     <!-- Section: Keyvisual Grid -->
     <div class="section-light">
       <section class="keyvisual-grid">
-        <!-- Row 1: Image + Symbol with Point -->
+        <!-- Row 1: Gray Box + Symbol -->
         <div class="keyvisual-grid__row">
           <div class="keyvisual-card keyvisual-card--square">
-            <div class="keyvisual-card__point"></div>
-            <img class="kv-image" src="img/keyvisual/img_keyvisual_01.png" alt="FOLTHAT Keyvisual">
+            <div class="keyvisual-card__gray"></div>
           </div>
           <div class="keyvisual-card keyvisual-card--wide">
-            <div class="keyvisual-card__point"></div>
             <div class="keyvisual-card__symbol">
               <img src="img/keyvisual/ic_symbol_01.svg" alt="FOLTHAT Symbol">
             </div>
           </div>
         </div>
-        <!-- Row 2: Text + Symbol + Logo with Points -->
+        <!-- Row 2: Text + Symbol + Logo -->
         <div class="keyvisual-grid__row">
           <div class="keyvisual-card keyvisual-card--third">
-            <div class="keyvisual-card__point"></div>
             <div class="keyvisual-card__text">
               6 Thin MicroSpan™<br>Blades for a Smooth Shave
             </div>
           </div>
           <div class="keyvisual-card keyvisual-card--third">
-            <div class="keyvisual-card__point"></div>
             <div class="keyvisual-card__symbol">
               <img src="img/keyvisual/ic_symbol_02.svg" alt="FOLTHAT Symbol">
             </div>
           </div>
           <div class="keyvisual-card keyvisual-card--third">
-            <div class="keyvisual-card__point"></div>
             <div class="keyvisual-card__logo">
               <img src="img/logo.svg" alt="FOLTHAT Logo">
             </div>
           </div>
         </div>
-        <!-- Row 3: Image + Image with Points -->
+        <!-- Row 3: Image + Image -->
         <div class="keyvisual-grid__row">
           <div class="keyvisual-card keyvisual-card--square">
-            <div class="keyvisual-card__point"></div>
-            <img class="kv-image" src="img/keyvisual/img_keyvisual_02.png" alt="FOLTHAT Keyvisual">
+            <img class="kv-image" src="img/keyvisual/img_keyvisual_01.png" alt="FOLTHAT Keyvisual">
           </div>
           <div class="keyvisual-card keyvisual-card--wide">
-            <div class="keyvisual-card__point"></div>
             <img class="kv-image" src="img/keyvisual/img_keyvisual_02.png" alt="FOLTHAT Keyvisual">
           </div>
         </div>

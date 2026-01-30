@@ -1,0 +1,1393 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FOLTHAT - 접음으로써 펼쳐지는 가능성</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Noto+Sans+KR:wght@400;500;600&family=Asta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Noto Sans KR', 'Roboto', sans-serif;
+      color: #000;
+      background: #fff;
+      overflow-x: hidden;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ===== HEADER ===== */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 30px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      opacity: 1;
+    }
+
+    .header-title {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 40px;
+    }
+
+    /* ===== MAIN CONTENT ===== */
+    .main {
+      margin-top: 80px;
+    }
+
+    /* ===== TEXT SECTION (two-column layout) ===== */
+    .text-section {
+      max-width: 1428px;
+      margin: 0 auto;
+      padding: 199px 0;
+      display: flex;
+      gap: 0;
+    }
+
+    .text-section__label {
+      width: 580px;
+      flex-shrink: 0;
+      font-weight: 500;
+      font-size: 19.8px;
+      letter-spacing: -0.4px;
+      line-height: 30px;
+    }
+
+    .text-section__content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 29px;
+    }
+
+    .text-section__content p {
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 30px;
+      letter-spacing: -0.4px;
+    }
+
+    /* ===== FULL WIDTH IMAGE ===== */
+    .full-image {
+      width: 100%;
+      position: relative;
+    }
+
+    .full-image img {
+      width: 100%;
+      display: block;
+    }
+
+    /* ===== INSET IMAGE ===== */
+    .inset-image {
+      padding: 0 100px;
+    }
+
+    .inset-image img {
+      width: 100%;
+    }
+
+    /* ===== INDUSTRY GRID ===== */
+    .industry-grid {
+      padding: 0 100px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .industry-grid__row {
+      display: flex;
+      gap: 20px;
+      height: 564px;
+      overflow: hidden;
+    }
+
+    .industry-grid__row > div {
+      flex: 1 1 0;
+      overflow: hidden;
+      min-width: 0;
+    }
+
+    .industry-grid__row > div img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ===== CORE VALUES ===== */
+    .core-values {
+      padding: 0 100px;
+    }
+
+    .core-values__item {
+      border-top: 1px solid #1c1c1c;
+      padding: 53px 0 66px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+
+    .core-values__item:last-child {
+      padding-bottom: 181px;
+    }
+
+    .core-values__number img {
+      height: 80px;
+    }
+
+    .core-values__desc img {
+      height: 143px;
+    }
+
+    /* ===== CORE VALUES DETAILED ===== */
+    .core-values-detailed {
+      padding: 0 100px;
+    }
+
+    .core-values-detailed__header {
+      border-top: 1px solid #1c1c1c;
+      padding: 53px 0 66px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+
+    .core-values-detailed__title {
+      width: 589px;
+      flex-shrink: 0;
+    }
+
+    .core-values-detailed__title h2 {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700;
+      font-size: 64px;
+      line-height: 1.3;
+      letter-spacing: -1.28px;
+      margin: 0;
+    }
+
+    .core-values-detailed__subtitle {
+      flex: 1;
+      padding-left: 40px;
+    }
+
+    .core-values-detailed__subtitle p {
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 30px;
+      letter-spacing: -0.4px;
+      margin: 0;
+    }
+
+    .core-values-detailed__item {
+      border-top: 1px solid #1c1c1c;
+      padding: 53px 0 66px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+
+    .core-values-detailed__item:last-child {
+      padding-bottom: 181px;
+    }
+
+    .core-values-detailed__number {
+      width: 80px;
+      flex-shrink: 0;
+    }
+
+    .core-values-detailed__number span {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700;
+      font-size: 64px;
+      line-height: 1;
+      letter-spacing: -1.28px;
+    }
+
+    .core-values-detailed__content {
+      flex: 1;
+      padding-left: 40px;
+    }
+
+    .core-values-detailed__content h3 {
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 1.5;
+      letter-spacing: -0.48px;
+      margin: 0 0 12px 0;
+    }
+
+    .core-values-detailed__content p {
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 30px;
+      letter-spacing: -0.4px;
+      margin: 0;
+    }
+
+    /* ===== LOGO SECTION (light bg) ===== */
+    .section-light {
+      background: #f7f7f6;
+    }
+
+    /* ===== LOGO HISTORY ===== */
+    .logo-history {
+      display: flex;
+      gap: 20px;
+      padding: 0 100px;
+    }
+
+    .logo-history__item {
+      flex: 1;
+      overflow: hidden;
+    }
+
+    .logo-history__year {
+      font-weight: 600;
+      font-size: 15.9px;
+      letter-spacing: -0.32px;
+      line-height: 22px;
+      margin-bottom: 10px;
+    }
+
+    .logo-history__divider {
+      height: 1px;
+      background: #1c1c1c;
+      margin-bottom: 12px;
+    }
+
+    .logo-history__desc {
+      font-weight: 400;
+      font-size: 16px;
+      letter-spacing: -0.32px;
+      line-height: 22px;
+      margin-bottom: 32px;
+      min-height: 44px;
+    }
+
+    .logo-history__logo-box {
+      background: #fff;
+      height: 330px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-history__logo-box img {
+      max-width: 252px;
+      max-height: 50px;
+    }
+
+    /* ===== LOGO VARIANTS ===== */
+    .logo-variants {
+      padding: 200px 100px;
+      display: flex;
+      flex-direction: column;
+      gap: 200px;
+    }
+
+    .logo-variants__main {
+      display: flex;
+      gap: 20px;
+    }
+
+    .logo-variants__primary {
+      background: #fff;
+      width: 993px;
+      height: 966px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .logo-variants__primary-logo {
+      max-width: 90%;
+      max-height: 200px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .logo-variants__label {
+      position: absolute;
+      top: 40px;
+      left: 40px;
+      font-family: 'Asta Sans', 'Noto Sans KR', sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 1.4;
+      letter-spacing: -0.28px;
+      color: #000;
+    }
+
+    .logo-variants__secondary {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .logo-variants__secondary-item {
+      flex: 1;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .logo-variants__secondary-logo-kr {
+      max-width: 90%;
+      max-height: 100px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .logo-variants__secondary-lockup {
+      max-width: 90%;
+      max-height: 150px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .logo-variants__video {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .logo-variants__video img {
+      width: 1138px;
+    }
+
+    /* ===== KEYVISUAL GRID ===== */
+    .keyvisual-grid {
+      padding: 0 100px 213px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .keyvisual-grid__row {
+      display: flex;
+      gap: 20px;
+    }
+
+    .keyvisual-card {
+      background: #fff;
+      height: 559px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .keyvisual-card--square {
+      width: 560px;
+      flex-shrink: 0;
+    }
+
+    .keyvisual-card--wide {
+      flex: 1;
+    }
+
+    .keyvisual-card--third {
+      flex: 1;
+    }
+
+    .keyvisual-card img.kv-main {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+    }
+
+    .keyvisual-card img.kv-icon {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 22px;
+      height: 22px;
+    }
+
+    .keyvisual-card .red-line {
+      width: 100%;
+      height: 1.5px;
+      background: #ff0a00;
+    }
+
+    /* ===== KEYVISUAL HERO ===== */
+    .keyvisual-hero {
+      width: 100%;
+    }
+
+    .keyvisual-hero img {
+      width: 100%;
+    }
+
+    /* ===== COLOR & TYPOGRAPHY SECTION ===== */
+    .color-section {
+      padding: 0 100px;
+    }
+
+    .color-section__row {
+      display: flex;
+      gap: 20px;
+    }
+
+    /* ===== TYPOGRAPHY SHOWCASE ===== */
+    .typography-showcase {
+      padding: 193px 100px 207px;
+    }
+
+    .typography-showcase__item {
+      border-top: 1px solid #1c1c1c;
+      padding: 53px 0 66px;
+    }
+
+    .typography-showcase__item:first-child {
+      padding: 30px 0 40px;
+    }
+
+    .typography-showcase__header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+
+    .typography-showcase__label {
+      font-family: 'Asta Sans', 'Noto Sans KR', sans-serif;
+      font-weight: 400;
+      font-size: 42px;
+      line-height: 1.3;
+      letter-spacing: -0.84px;
+    }
+
+    .typography-showcase__font-name {
+      font-family: 'Asta Sans', 'Noto Sans KR', sans-serif;
+      font-weight: 700;
+      font-size: 64px;
+      line-height: 1.2;
+      letter-spacing: -1.28px;
+    }
+
+    .typography-showcase__text {
+      width: 100%;
+    }
+
+    .typography-showcase__lang {
+      font-family: 'Asta Sans', 'Noto Sans KR', sans-serif;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 1.5;
+      letter-spacing: -0.28px;
+      margin-bottom: 20px;
+      color: #666;
+    }
+
+    .typography-showcase__sample {
+      font-family: 'Asta Sans', 'Noto Sans KR', sans-serif;
+      font-weight: 700;
+      font-size: 48px;
+      line-height: 1.4;
+      letter-spacing: -0.96px;
+      margin: 0;
+    }
+
+    .typography-showcase__row {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .typography-showcase__column {
+      width: 100%;
+    }
+
+    .typography-showcase__column-label {
+      font-family: 'Asta Sans', 'Noto Sans KR', sans-serif;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 1.5;
+      letter-spacing: -0.28px;
+      margin-bottom: 20px;
+      color: #666;
+    }
+
+    .typography-showcase__column-text {
+      font-family: 'Asta Sans', 'Noto Sans KR', sans-serif;
+      font-weight: 600;
+      font-size: 32px;
+      line-height: 1.5;
+      letter-spacing: -0.64px;
+      margin: 0;
+    }
+
+    /* ===== TYPOGRAPHY DETAILS ===== */
+    .typography-section {
+      padding: 193px 100px 207px;
+    }
+
+    .typography-section__item {
+      border-top: 1px solid #1c1c1c;
+      padding: 30px 0 50px;
+    }
+
+    .typography-section__item:first-child {
+      padding: 30px 0 40px;
+    }
+
+    .typography-section__item img {
+      width: 100%;
+    }
+
+    /* ===== PACKAGE SYSTEM (dark section) ===== */
+    .package-section {
+      background: #000;
+      color: #fff;
+      padding: 110px 100px 180px;
+    }
+
+    .package-section__divider {
+      height: 1px;
+      background: #fff;
+      margin-bottom: 20px;
+    }
+
+    .package-section__title img {
+      height: 16px;
+    }
+
+    .package-section__item {
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+    }
+
+    .package-section__item--mt1 { margin-top: 80px; }
+    .package-section__item--mt2 { margin-top: 130px; }
+    .package-section__item--mt3 { margin-top: 118px; }
+
+    .package-section__item-img {
+      width: 1138px;
+      flex-shrink: 0;
+    }
+
+    .package-section__item-img img {
+      width: 100%;
+    }
+
+    .package-section__item-text {
+      flex: 1;
+      min-width: 413px;
+    }
+
+    .package-section__item-num {
+      font-size: 16px;
+      line-height: 22px;
+      margin-bottom: 10px;
+    }
+
+    .package-section__item-label {
+      font-size: 15.9px;
+      line-height: 22px;
+      margin-bottom: 45px;
+    }
+
+    .package-section__item-desc {
+      font-size: 16px;
+      line-height: 22px;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      padding: 40px 30px 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer-links {
+      display: flex;
+      align-items: center;
+    }
+
+    .footer-links__item {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 14px;
+      padding: 1px 0;
+      padding-right: 21px;
+      position: relative;
+    }
+
+    .footer-links__item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: 9px;
+      top: 4px;
+      width: 1px;
+      height: 11px;
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    .footer-links__item:last-child {
+      padding-right: 0;
+    }
+
+    .footer-links__item .badge {
+      position: absolute;
+      top: -5px;
+      right: 21px;
+      background: rgba(219, 16, 16, 0.9);
+      border: 1px solid red;
+      color: #fff;
+      font-size: 7px;
+      font-weight: 700;
+      padding: 3.75px 4.71px 2.75px;
+      border-radius: 14000px;
+      line-height: 7px;
+      box-shadow: 0.7px 0.7px 1.4px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .footer-copyright {
+      font-family: 'Roboto', 'Noto Sans KR', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      padding: 3px 0 1px;
+    }
+
+    /* ===== PLACEHOLDER BOX ===== */
+    .placeholder-box {
+      background: #D3D3D3;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #888;
+      font-size: 14px;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    /* ===== BACK TO TOP BUTTON ===== */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 50;
+    }
+
+    .back-to-top button {
+      width: 40px;
+      height: 40px;
+      background: #fff;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    /* ===== NAV ITEMS ===== */
+    .nav-section {
+      padding: 20px 30px 0;
+    }
+
+    .nav-divider {
+      height: 1px;
+      background: rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+
+    .nav-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .nav-items a {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    /* ===== MOBILE RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      /* Header */
+      .header {
+        padding: 15px 20px;
+      }
+
+      .header-title {
+        font-size: 16px;
+      }
+
+      /* Main */
+      .main {
+        margin-top: 60px;
+      }
+
+      /* Text Section */
+      .text-section {
+        padding: 80px 20px;
+        flex-direction: column;
+        gap: 30px;
+      }
+
+      .text-section__label {
+        width: 100%;
+        font-size: 18px;
+      }
+
+      .text-section__content p {
+        font-size: 16px;
+        line-height: 26px;
+      }
+
+      /* Full Image */
+      .full-image {
+        padding: 0;
+      }
+
+      /* Inset Image */
+      .inset-image {
+        padding: 0 20px;
+      }
+
+      /* Industry Grid */
+      .industry-grid {
+        padding: 0 20px;
+      }
+
+      .industry-grid__row {
+        flex-direction: column;
+        height: auto;
+        gap: 10px;
+      }
+
+      .industry-grid__row > div {
+        width: 100%;
+      }
+
+      .industry-grid__row > div img {
+        height: auto;
+        min-height: 300px;
+      }
+
+      /* Core Values Detailed */
+      .core-values-detailed {
+        padding: 0 20px;
+      }
+
+      .core-values-detailed__header {
+        flex-direction: column;
+        gap: 20px;
+        padding: 40px 0 50px;
+      }
+
+      .core-values-detailed__title {
+        width: 100%;
+      }
+
+      .core-values-detailed__title h2 {
+        font-size: 36px;
+      }
+
+      .core-values-detailed__subtitle {
+        padding-left: 0;
+      }
+
+      .core-values-detailed__item {
+        flex-direction: column;
+        gap: 20px;
+        padding: 40px 0 50px;
+      }
+
+      .core-values-detailed__item:last-child {
+        padding-bottom: 80px;
+      }
+
+      .core-values-detailed__number {
+        width: auto;
+      }
+
+      .core-values-detailed__number span {
+        font-size: 48px;
+      }
+
+      .core-values-detailed__content {
+        padding-left: 0;
+      }
+
+      .core-values-detailed__content h3 {
+        font-size: 20px;
+      }
+
+      .core-values-detailed__content p {
+        font-size: 16px;
+        line-height: 26px;
+      }
+
+      /* Logo History */
+      .logo-history {
+        flex-direction: column;
+        padding: 0 20px;
+      }
+
+      .logo-history__item {
+        width: 100%;
+      }
+
+      .logo-history__logo-box {
+        height: 200px;
+      }
+
+      /* Logo Variants */
+      .logo-variants {
+        padding: 100px 20px;
+        gap: 100px;
+      }
+
+      .logo-variants__main {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .logo-variants__primary {
+        width: 100%;
+        height: auto;
+        min-height: 250px;
+        padding: 60px 30px;
+      }
+
+      .logo-variants__primary-logo,
+      .logo-variants__primary img {
+        max-width: 100%;
+        max-height: 120px;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+      }
+
+      .logo-variants__label {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        font-size: 12px;
+      }
+
+      .logo-variants__secondary {
+        width: 100%;
+      }
+
+      .logo-variants__secondary-item {
+        height: auto;
+        min-height: 180px;
+        padding: 60px 30px;
+      }
+
+      .logo-variants__secondary-logo-kr,
+      .logo-variants__secondary-lockup,
+      .logo-variants__secondary-item img {
+        max-width: 100%;
+        max-height: 80px;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+      }
+
+      .logo-variants__video {
+        justify-content: center;
+      }
+
+      .logo-variants__video img,
+      .logo-variants__video div {
+        width: 100%;
+        height: auto;
+      }
+
+      /* Keyvisual Grid */
+      .keyvisual-grid {
+        padding: 0 20px 100px;
+      }
+
+      .keyvisual-grid__row {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .keyvisual-card {
+        width: 100%;
+        height: 300px;
+      }
+
+      .keyvisual-card--square,
+      .keyvisual-card--wide,
+      .keyvisual-card--third {
+        width: 100%;
+      }
+
+      /* Color Section */
+      .color-section {
+        padding: 0 20px;
+      }
+
+      .color-section__row {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      /* Typography */
+      .typography-showcase {
+        padding: 80px 20px 100px;
+      }
+
+      .typography-showcase__item {
+        padding: 30px 0 40px;
+      }
+
+      .typography-showcase__header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+      }
+
+      .typography-showcase__label {
+        font-size: 28px;
+      }
+
+      .typography-showcase__font-name {
+        font-size: 42px;
+      }
+
+      .typography-showcase__sample {
+        font-size: 32px;
+      }
+
+      .typography-showcase__column-text {
+        font-size: 24px;
+      }
+
+      /* Package/Design System */
+      .package-section {
+        padding: 60px 20px 100px;
+      }
+
+      .package-section__item {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .package-section__item--mt1,
+      .package-section__item--mt2,
+      .package-section__item--mt3 {
+        margin-top: 40px;
+      }
+
+      .package-section__item-img {
+        width: 100%;
+      }
+
+      .package-section__item-text {
+        min-width: 0;
+      }
+
+      /* Placeholder */
+      .placeholder-box {
+        font-size: 12px;
+        min-height: 200px;
+      }
+
+      /* Product Grid Mobile Fix */
+      .industry-grid[style*="padding-top: 200px"] {
+        padding-top: 80px !important;
+        padding-bottom: 80px !important;
+      }
+
+      .industry-grid__row > div[style*="padding-right: 51px"] div {
+        padding-right: 0 !important;
+        font-size: 16px !important;
+      }
+
+      .industry-grid__row > div[style*="padding-right: 51px"] div:last-child {
+        font-size: 36px !important;
+        line-height: 1.2 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-title">FOLTHAT</div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="main">
+
+    <!-- Section: Brand Story Hero -->
+    <section class="full-image">
+      <div class="placeholder-box" style="height: 1080px;">Hero Image</div>
+    </section>
+
+    <!-- Section: Brand Story Text -->
+    <section class="text-section">
+      <div class="text-section__label">Brand Story</div>
+      <div class="text-section__content">
+        <p>당신의 1평은 얼마입니까? 치솟는 부동산 가격 속에서 우리는 우리가 소유한 물건들에게 값비싼 임대료를 내어주고 있습니다. 일 년에 한 번 쓰는 캐리어, 손님이 올 때만 펴는 테이블, 의지로 샀지만 짐이 된 런닝머신까지. 쓰지 않는 순간에도 그들은 당당히 공간을 차지합니다.</p>
+        <p>우리는 질문했습니다. "왜 접이식 제품은 항상 투박하고 약해야만 할까?" 그 질문의 답이 바로 폴댓(FOLTHAT)입니다. 폴댓은 단순히 물건을 파는 곳이 아닙니다. 공간을 효율적으로 활용하려는 사람들이 모여 아이디어를 나누고, 접는 행위 자체가 하나의 패션이 되는 문화를 만듭니다.</p>
+        <p>소재의 차가운 금속성보다는 손에 닿는 고급스러움을, 복잡한 관절보다는 물 흐르듯 접히는 직관성을 고민합니다. 폴댓을 통해 당신의 공간은 더 넓어지고, 당신의 삶은 더 자유로워질 것입니다.</p>
+      </div>
+    </section>
+
+    <!-- Section: Video 1 -->
+    <section class="full-image">
+      <div class="placeholder-box" style="height: 900px;">Video 1</div>
+    </section>
+
+    <!-- Section: Brand Essence Video -->
+    <section class="full-image">
+      <div class="placeholder-box" style="height: 900px;">Video 2</div>
+    </section>
+
+    <!-- Section: Brand Essence Text -->
+    <section class="text-section">
+      <div class="text-section__label">Brand Essence</div>
+      <div class="text-section__content">
+        <p>FOLTHAT의 브랜드 본질은 "Space Liberator(공간 해방자)"입니다. 우리는 단순히 가구를 파는 것이 아니라, 물리적 한계에 갇힌 현대인의 삶에 '여백'을 선물합니다.</p>
+      </div>
+    </section>
+
+    <!-- Section: Mission Video (inset) -->
+    <section class="inset-image">
+      <div class="placeholder-box" style="height: 700px;">Video 3</div>
+    </section>
+
+    <!-- Section: Brand Mission Text -->
+    <section class="text-section">
+      <div class="text-section__label">Brand Mission</div>
+      <div class="text-section__content">
+        <p>부동산 가격이 삶의 질을 결정하지 않도록, 접는 기술을 통해 공간의 가치를 극대화합니다. 물건이 점유하던 자리를 사람의 활동 공간으로 되돌려줍니다. 실용성에 매몰되어 잃어버렸던 접이식 제품의 '심미적 가치'를 회복시킵니다. FOLTHAT은 더 넓은 삶을 위한 가장 얇은 솔루션을 제공합니다.</p>
+      </div>
+    </section>
+
+    <!-- Section: Product Showcase Image -->
+    <section class="full-image">
+      <img src="img/section/01/img_01.png" alt="FOLTHAT Product Showcase">
+    </section>
+
+    <!-- Section: Product Grid -->
+    <section class="industry-grid" style="padding-top: 200px; padding-bottom: 200px;">
+      <div class="industry-grid__row">
+        <div style="flex: 1; min-width: 0;"><img src="img/section/01/img_02.png" alt="FOLTHAT Product 1"></div>
+        <div style="flex: 1; min-width: 0;"><img src="img/section/01/img_03.png" alt="FOLTHAT Product 2"></div>
+      </div>
+      <div class="industry-grid__row">
+        <div style="flex: 1; min-width: 0; display: flex; flex-direction: column; justify-content: flex-end;">
+          <div style="font-family: 'Asta Sans', sans-serif; font-weight: 400; font-size: 20px; line-height: 1.5; letter-spacing: -0.4px; margin-bottom: 10px; padding-right: 51px;">FOLTHAT's Vision</div>
+          <div style="font-family: 'Asta Sans', sans-serif; font-weight: 700; font-size: 64px; line-height: 1.125; letter-spacing: -1.28px; padding-right: 51px;">Fold Space,<br>Unfold Life</div>
+        </div>
+        <div style="flex: 1; min-width: 0;"><img src="img/section/01/img_04.png" alt="FOLTHAT Product 4"></div>
+      </div>
+    </section>
+
+    <!-- Section: Core Values Video -->
+    <section class="full-image">
+      <div class="placeholder-box" style="height: 900px;">Video 4</div>
+    </section>
+
+    <!-- Section: Core Values Text -->
+    <section class="text-section">
+      <div class="text-section__label">Core Values</div>
+      <div class="text-section__content">
+        <p>FOLTHAT의 3대 핵심 가치는 폴댓이 제품을 선별하고 제작하는 변하지 않는 기준입니다. 공간의 효율화(Efficiency): 0.1평의 가치도 소중히 여기는 구조적 혁신. 소재의 고급화(Premium): '접이식은 약하다'는 편견을 깨는 견고함과 질감. 사용의 직관성(Intuition): 설명서 없이도 누구나 3초 안에 펼치고 접을 수 있는 매끄러움. 이 세 가지 가치는 FOLTHAT의 모든 제품과 경험에 일관되게 적용됩니다.</p>
+      </div>
+    </section>
+
+    <!-- Section: Core Values Details -->
+    <section class="core-values-detailed">
+      <div class="core-values-detailed__header">
+        <div class="core-values-detailed__title">
+          <h2>Core Values</h2>
+        </div>
+        <div class="core-values-detailed__subtitle">
+          <p>FOLTHAT의 3대 핵심 가치는 폴댓이 제품을 선별하고 제작하는 변하지 않는 기준입니다.</p>
+        </div>
+      </div>
+
+      <div class="core-values-detailed__item">
+        <div class="core-values-detailed__number">
+          <span>1</span>
+        </div>
+        <div class="core-values-detailed__content">
+          <h3>공간의 효율화 (Efficiency)</h3>
+          <p>0.1평의 가치도 소중히 여기는 구조적 혁신.</p>
+        </div>
+      </div>
+
+      <div class="core-values-detailed__item">
+        <div class="core-values-detailed__number">
+          <span>2</span>
+        </div>
+        <div class="core-values-detailed__content">
+          <h3>소재의 고급화 (Premium)</h3>
+          <p>'접이식은 약하다'는 편견을 깨는 견고함과 질감.</p>
+        </div>
+      </div>
+
+      <div class="core-values-detailed__item">
+        <div class="core-values-detailed__number">
+          <span>3</span>
+        </div>
+        <div class="core-values-detailed__content">
+          <h3>사용의 직관성 (Intuition)</h3>
+          <p>설명서 없이도 누구나 3초 안에 펼치고 접을 수 있는 매끄러움.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Slogan Image -->
+    <section class="full-image">
+      <div class="placeholder-box" style="height: 800px;">Slogan Image</div>
+    </section>
+
+    <!-- Section: Brand Slogan Text -->
+    <div class="section-light">
+      <section class="text-section">
+        <div class="text-section__label">Brand Slogan</div>
+        <div class="text-section__content">
+          <p>FOLTHAT의 메인 슬로건은 "우리는 접는 것에 진심입니다(We are serious about folding)"입니다. 이 슬로건은 접이식 제품에 대한 FOLTHAT의 진지한 철학과 헌신을 담고 있습니다. 서브 슬로건 "공간을 접고, 일상을 펼치다"와 "더 넓은 삶을 위한 가장 얇은 솔루션"은 사용자가 FOLTHAT과 함께 경험하게 될 삶의 변화를 직관적으로 전달합니다.</p>
+        </div>
+      </section>
+
+      <!-- Section: Brand Philosophy -->
+      <section class="logo-history">
+        <div class="logo-history__item">
+          <div class="logo-history__year">Fold</div>
+          <div class="logo-history__divider"></div>
+          <div class="logo-history__desc">접음 — 공간을 확보하는 가장 스마트한 행위</div>
+          <div class="logo-history__logo-box">
+            <div class="placeholder-box">Logo</div>
+          </div>
+        </div>
+        <div class="logo-history__item">
+          <div class="logo-history__year">That</div>
+          <div class="logo-history__divider"></div>
+          <div class="logo-history__desc">바로 그것 — 당신이 찾던 접이식의 정답</div>
+          <div class="logo-history__logo-box">
+            <div class="placeholder-box">Logo</div>
+          </div>
+        </div>
+        <div class="logo-history__item">
+          <div class="logo-history__year">Efficiency</div>
+          <div class="logo-history__divider"></div>
+          <div class="logo-history__desc">공간의 효율화 — 0.1평의 가치도 소중히 여기는 구조적 혁신</div>
+          <div class="logo-history__logo-box">
+            <div class="placeholder-box">Logo</div>
+          </div>
+        </div>
+        <div class="logo-history__item">
+          <div class="logo-history__year">Premium</div>
+          <div class="logo-history__divider"></div>
+          <div class="logo-history__desc">소재의 고급화 — 접이식은 약하다는 편견을 깨는 견고함과 질감</div>
+          <div class="logo-history__logo-box">
+            <div class="placeholder-box">Logo</div>
+          </div>
+        </div>
+        <div class="logo-history__item">
+          <div class="logo-history__year">Intuition</div>
+          <div class="logo-history__divider"></div>
+          <div class="logo-history__desc">사용의 직관성 — 설명서 없이도 3초 안에 펼치고 접을 수 있는 매끄러움</div>
+          <div class="logo-history__logo-box">
+            <div class="placeholder-box">Logo</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Logo Video (inset) -->
+      <section class="inset-image" style="padding-top: 200px;">
+        <div class="placeholder-box" style="height: 700px;">Video 5</div>
+      </section>
+    </div>
+
+    <!-- Section: Logo Variants -->
+    <div class="section-light">
+      <section class="logo-variants">
+        <div class="logo-variants__main">
+          <div class="logo-variants__primary">
+            <div class="logo-variants__label">CI Logo EN</div>
+            <img class="logo-variants__primary-logo" src="img/logo.svg" alt="FOLTHAT Logo">
+          </div>
+          <div class="logo-variants__secondary">
+            <div class="logo-variants__secondary-item">
+              <div class="logo-variants__label">CI Logo KR</div>
+              <img class="logo-variants__secondary-logo-kr" src="img/logo_kor.svg" alt="폴댓 로고">
+            </div>
+            <div class="logo-variants__secondary-item">
+              <div class="logo-variants__label">CI Logo / Tagline Lockup</div>
+              <img class="logo-variants__secondary-lockup" src="img/logo with sub.svg" alt="FOLTHAT Logo with Tagline">
+            </div>
+          </div>
+        </div>
+        <div class="logo-variants__video">
+          <div class="placeholder-box" style="height: 640px;">Video 6</div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Section: Paper / Keyvisual -->
+    <div class="section-light">
+      <section class="full-image">
+        <div class="placeholder-box" style="height: 800px;">Paper Image</div>
+      </section>
+
+      <section class="text-section">
+        <div class="text-section__label">Visual Identity</div>
+        <div class="text-section__content">
+          <p>FOLTHAT의 비주얼 아이덴티티는 '접힘(Fold)'의 시각화에서 시작됩니다. 텍스트나 심볼이 접히는 지점을 강조한 레이아웃을 통해, 브랜드의 정체성을 물리적으로 체험하게 합니다. 특히 &lt;FOL&gt;이 접히며 &lt;THAT&gt;이 드러나는 구조는 FOLTHAT의 핵심 철학을 상징합니다.</p>
+          <p>컬러는 Deep Black과 Tech Silver를 메인으로 활용하여 견고함과 기능성을 상징합니다. 이미지는 High-Contrast 스타일로 제품의 디테일과 소재감이 극명하게 드러나는 고화질 사진을 사용하여, 편집샵으로서의 신뢰감과 패션 브랜드로서의 힙함을 동시에 전달합니다.</p>
+        </div>
+      </section>
+    </div>
+
+    <!-- Section: Keyvisual Grid -->
+    <div class="section-light">
+      <section class="keyvisual-grid">
+        <!-- Row 1 -->
+        <div class="keyvisual-grid__row">
+          <div class="keyvisual-card keyvisual-card--square">
+            <div class="placeholder-box">Keyvisual 1</div>
+          </div>
+          <div class="keyvisual-card keyvisual-card--wide">
+            <div class="placeholder-box">Keyvisual 2</div>
+          </div>
+        </div>
+        <!-- Row 2 -->
+        <div class="keyvisual-grid__row">
+          <div class="keyvisual-card keyvisual-card--third">
+            <div class="placeholder-box">Keyvisual 3</div>
+          </div>
+          <div class="keyvisual-card keyvisual-card--third">
+            <div class="placeholder-box">Keyvisual 4</div>
+          </div>
+          <div class="keyvisual-card keyvisual-card--third">
+            <div class="placeholder-box">Keyvisual 5</div>
+          </div>
+        </div>
+        <!-- Row 3 -->
+        <div class="keyvisual-grid__row">
+          <div class="keyvisual-card keyvisual-card--square">
+            <div class="placeholder-box">Keyvisual 6</div>
+          </div>
+          <div class="keyvisual-card keyvisual-card--wide">
+            <div class="placeholder-box">Keyvisual 7</div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Section: Keyvisual Hero -->
+    <section class="keyvisual-hero">
+      <div class="placeholder-box" style="height: 900px;">Keyvisual Hero</div>
+    </section>
+
+    <!-- Section: Color & Typography -->
+    <section class="full-image">
+      <div class="placeholder-box" style="height: 800px;">Color & Typography Image</div>
+    </section>
+
+    <section class="text-section">
+      <div class="text-section__label">Color &amp; Typography</div>
+      <div class="text-section__content">
+        <p>FOLTHAT의 컬러 스택은 Deep Black과 Tech Silver를 중심으로 구성됩니다. 견고함과 기능성을 상징하는 이 메인 컬러는 접이식 제품의 프리미엄함을 강조하며, 현대적이고 세련된 브랜드 이미지를 형성합니다.</p>
+        <p>타이포그래피는 깔끔하고 직관적인 서체를 사용하여 FOLTHAT의 핵심 가치인 '직관성'을 시각적으로 구현합니다. 다양한 접점에서 일관된 브랜드 경험을 제공하며, 편집샵으로서의 신뢰감과 라이프스타일 브랜드로서의 감성을 균형있게 전달합니다.</p>
+      </div>
+    </section>
+
+    <!-- Section: Typography Showcase -->
+    <section class="typography-showcase">
+      <div class="typography-showcase__item">
+        <div class="typography-showcase__header">
+          <div class="typography-showcase__label">Typeface</div>
+          <div class="typography-showcase__font-name">Asta Sans</div>
+        </div>
+      </div>
+
+      <div class="typography-showcase__item">
+        <div class="typography-showcase__text">
+          <div class="typography-showcase__lang">Latin</div>
+          <p class="typography-showcase__sample">Fold the space, unfold your life with FOLTHAT</p>
+        </div>
+      </div>
+
+      <div class="typography-showcase__item">
+        <div class="typography-showcase__text">
+          <div class="typography-showcase__lang">Korean</div>
+          <p class="typography-showcase__sample">폴댓, 접는 것에 진심인 공간 해방자</p>
+        </div>
+      </div>
+
+      <div class="typography-showcase__item">
+        <div class="typography-showcase__row">
+          <div class="typography-showcase__column">
+            <div class="typography-showcase__column-label">Efficiency</div>
+            <p class="typography-showcase__column-text">0.1평의 가치도 소중히 여기는 구조적 혁신</p>
+          </div>
+          <div class="typography-showcase__column">
+            <div class="typography-showcase__column-label">Premium</div>
+            <p class="typography-showcase__column-text">접이식은 약하다는 편견을 깨는 견고함과 질감</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="typography-showcase__item">
+        <div class="typography-showcase__row">
+          <div class="typography-showcase__column">
+            <div class="typography-showcase__column-label">Intuition</div>
+            <p class="typography-showcase__column-text">설명서 없이도 3초 안에 펼치고 접을 수 있는 매끄러움</p>
+          </div>
+          <div class="typography-showcase__column">
+            <div class="typography-showcase__column-label">Space Liberator</div>
+            <p class="typography-showcase__column-text">더 넓은 삶을 위한 가장 얇은 솔루션</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Black Space -->
+    <section style="background: #000; height: 800px;"></section>
+
+  </main>
+
+</body>
+</html>

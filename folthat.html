@@ -461,6 +461,29 @@
       object-fit: contain;
     }
 
+    .keyvisual-card__point {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 22px;
+      height: 22px;
+      background: #2B5FED;
+      border-radius: 2px;
+    }
+
+    .keyvisual-card__text {
+      position: absolute;
+      bottom: 50%;
+      left: 50%;
+      transform: translate(-50%, 50%);
+      font-family: 'Roboto', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      color: #000;
+      text-align: center;
+      line-height: 1.4;
+    }
+
     .keyvisual-card img.kv-icon {
       position: absolute;
       top: 20px;
@@ -1052,6 +1075,18 @@
         max-height: 40px;
       }
 
+      .keyvisual-card__point {
+        width: 16px;
+        height: 16px;
+        top: 15px;
+        left: 15px;
+      }
+
+      .keyvisual-card__text {
+        font-size: 12px;
+        padding: 0 20px;
+      }
+
       /* Color Section */
       .color-section {
         padding: 0 20px;
@@ -1397,12 +1432,10 @@
       </section>
 
       <section class="text-section">
-        <div class="text-section__label">Visual Identity</div>
+        <div class="text-section__label">Key Visual</div>
         <div class="text-section__content">
-          <p>FOLTHAT의 비주얼 아이덴티티는 '접힘(Fold)'의 시각화에서 시작됩니다. 텍스트나 심볼이 접히는 지점을 강조한 레이아웃을 통해, 브랜드의 정체성을 물리적으로 체험하게 합니다. 특히
-            &lt;FOL&gt;이 접히며 &lt;THAT&gt;이 드러나는 구조는 FOLTHAT의 핵심 철학을 상징합니다.</p>
-          <p>컬러는 Deep Black과 Tech Silver를 메인으로 활용하여 견고함과 기능성을 상징합니다. 이미지는 High-Contrast 스타일로 제품의 디테일과 소재감이 극명하게 드러나는 고화질
-            사진을 사용하여, 편집샵으로서의 신뢰감과 패션 브랜드로서의 힙함을 동시에 전달합니다.</p>
+          <p>FOLTHAT의 키 비주얼은 '공간을 잇다'라는 표현에서 모티브를 얻어 개발되었습니다. 작은 파란 사각형은 접이식 제품이 만들어내는 새로운 공간의 시작점을 상징하며, 제품과 사용자, 그리고 공간을 연결하는 핵심 포인트 역할을 합니다.</p>
+          <p>이 시각적 요소는 FOLTHAT의 제품이 단순히 물건을 접는 것을 넘어, 공간에 새로운 가능성을 더한다는 브랜드 철학을 담고 있습니다. 모던하고 미니멀한 제품 이미지와 함께 배치되어, FOLTHAT만의 독보적인 비주얼 아이덴티티를 형성합니다.</p>
         </div>
       </section>
 
@@ -1412,39 +1445,48 @@
     <!-- Section: Keyvisual Grid -->
     <div class="section-light">
       <section class="keyvisual-grid">
-        <!-- Row 1: Image + Symbol -->
+        <!-- Row 1: Image + Symbol with Point -->
         <div class="keyvisual-grid__row">
           <div class="keyvisual-card keyvisual-card--square">
+            <div class="keyvisual-card__point"></div>
             <img class="kv-image" src="img/keyvisual/img_keyvisual_01.png" alt="FOLTHAT Keyvisual">
           </div>
           <div class="keyvisual-card keyvisual-card--wide">
+            <div class="keyvisual-card__point"></div>
             <div class="keyvisual-card__symbol">
               <img src="img/keyvisual/ic_symbol_01.svg" alt="FOLTHAT Symbol">
             </div>
           </div>
         </div>
-        <!-- Row 2: Background + Symbol + Logo -->
+        <!-- Row 2: Text + Symbol + Logo with Points -->
         <div class="keyvisual-grid__row">
           <div class="keyvisual-card keyvisual-card--third">
-            <div style="width: 100%; height: 100%; background: #f5f5f5;"></div>
+            <div class="keyvisual-card__point"></div>
+            <div class="keyvisual-card__text">
+              6 Thin MicroSpan™<br>Blades for a Smooth Shave
+            </div>
           </div>
           <div class="keyvisual-card keyvisual-card--third">
+            <div class="keyvisual-card__point"></div>
             <div class="keyvisual-card__symbol">
               <img src="img/keyvisual/ic_symbol_02.svg" alt="FOLTHAT Symbol">
             </div>
           </div>
           <div class="keyvisual-card keyvisual-card--third">
+            <div class="keyvisual-card__point"></div>
             <div class="keyvisual-card__logo">
               <img src="img/logo.svg" alt="FOLTHAT Logo">
             </div>
           </div>
         </div>
-        <!-- Row 3: Image + Image -->
+        <!-- Row 3: Image + Image with Points -->
         <div class="keyvisual-grid__row">
           <div class="keyvisual-card keyvisual-card--square">
+            <div class="keyvisual-card__point"></div>
             <img class="kv-image" src="img/keyvisual/img_keyvisual_02.png" alt="FOLTHAT Keyvisual">
           </div>
           <div class="keyvisual-card keyvisual-card--wide">
+            <div class="keyvisual-card__point"></div>
             <img class="kv-image" src="img/keyvisual/img_keyvisual_02.png" alt="FOLTHAT Keyvisual">
           </div>
         </div>

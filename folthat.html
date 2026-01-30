@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FOLTHAT - 접음으로써 펼쳐지는 가능성</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Noto+Sans+KR:wght@400;500;600&family=Asta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Noto+Sans+KR:wght@400;500;600&family=Asta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
   <style>
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -126,13 +131,13 @@
       overflow: hidden;
     }
 
-    .industry-grid__row > div {
+    .industry-grid__row>div {
       flex: 1 1 0;
       overflow: hidden;
       min-width: 0;
     }
 
-    .industry-grid__row > div img {
+    .industry-grid__row>div img {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -590,9 +595,17 @@
       align-items: flex-start;
     }
 
-    .package-section__item--mt1 { margin-top: 80px; }
-    .package-section__item--mt2 { margin-top: 130px; }
-    .package-section__item--mt3 { margin-top: 118px; }
+    .package-section__item--mt1 {
+      margin-top: 80px;
+    }
+
+    .package-section__item--mt2 {
+      margin-top: 130px;
+    }
+
+    .package-section__item--mt3 {
+      margin-top: 118px;
+    }
 
     .package-section__item-img {
       width: 1138px;
@@ -697,6 +710,50 @@
       font-family: 'Roboto', sans-serif;
     }
 
+    /* ===== MOTIF SECTION ===== */
+    .motif-section {
+      padding: 0 100px 150px;
+      background: #f7f7f6;
+    }
+
+    .motif-title {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: 0.05em;
+      margin-bottom: 80px;
+      padding-top: 50px;
+    }
+
+    .motif-grid {
+      display: flex;
+      gap: 80px;
+      justify-content: space-between;
+    }
+
+    .motif-item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .motif-name {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700;
+      font-size: 20px;
+      margin-bottom: 15px;
+      letter-spacing: 0.1em;
+    }
+
+    .motif-desc {
+      font-size: 15px;
+      line-height: 1.6;
+      color: #333;
+      word-break: keep-all;
+    }
+
     /* ===== BACK TO TOP BUTTON ===== */
     .back-to-top {
       position: fixed;
@@ -742,6 +799,7 @@
 
     /* ===== MOBILE RESPONSIVE ===== */
     @media (max-width: 768px) {
+
       /* Header */
       .header {
         padding: 15px 20px;
@@ -794,11 +852,11 @@
         gap: 10px;
       }
 
-      .industry-grid__row > div {
+      .industry-grid__row>div {
         width: 100%;
       }
 
-      .industry-grid__row > div img {
+      .industry-grid__row>div img {
         height: auto;
         min-height: 300px;
       }
@@ -1033,18 +1091,34 @@
         padding-bottom: 80px !important;
       }
 
-      .industry-grid__row > div[style*="padding-right: 51px"] div {
+      .industry-grid__row>div[style*="padding-right: 51px"] div {
         padding-right: 0 !important;
         font-size: 16px !important;
       }
 
-      .industry-grid__row > div[style*="padding-right: 51px"] div:last-child {
+      .industry-grid__row>div[style*="padding-right: 51px"] div:last-child {
         font-size: 36px !important;
         line-height: 1.2 !important;
+      }
+
+      /* Motif Section Mobile */
+      .motif-section {
+        padding: 0 20px 80px;
+      }
+
+      .motif-grid {
+        flex-direction: column;
+        gap: 60px;
+      }
+
+      .motif-graphic {
+        height: 240px;
+        margin-bottom: 20px;
       }
     }
   </style>
 </head>
+
 <body>
 
   <!-- HEADER -->
@@ -1064,8 +1138,10 @@
     <section class="text-section">
       <div class="text-section__label">Brand Story</div>
       <div class="text-section__content">
-        <p>당신의 1평은 얼마입니까? 치솟는 부동산 가격 속에서 우리는 우리가 소유한 물건들에게 값비싼 임대료를 내어주고 있습니다. 일 년에 한 번 쓰는 캐리어, 손님이 올 때만 펴는 테이블, 의지로 샀지만 짐이 된 런닝머신까지. 쓰지 않는 순간에도 그들은 당당히 공간을 차지합니다.</p>
-        <p>우리는 질문했습니다. "왜 접이식 제품은 항상 투박하고 약해야만 할까?" 그 질문의 답이 바로 폴댓(FOLTHAT)입니다. 폴댓은 단순히 물건을 파는 곳이 아닙니다. 공간을 효율적으로 활용하려는 사람들이 모여 아이디어를 나누고, 접는 행위 자체가 하나의 패션이 되는 문화를 만듭니다.</p>
+        <p>당신의 1평은 얼마입니까? 치솟는 부동산 가격 속에서 우리는 우리가 소유한 물건들에게 값비싼 임대료를 내어주고 있습니다. 일 년에 한 번 쓰는 캐리어, 손님이 올 때만 펴는 테이블, 의지로 샀지만
+          짐이 된 런닝머신까지. 쓰지 않는 순간에도 그들은 당당히 공간을 차지합니다.</p>
+        <p>우리는 질문했습니다. "왜 접이식 제품은 항상 투박하고 약해야만 할까?" 그 질문의 답이 바로 폴댓(FOLTHAT)입니다. 폴댓은 단순히 물건을 파는 곳이 아닙니다. 공간을 효율적으로 활용하려는
+          사람들이 모여 아이디어를 나누고, 접는 행위 자체가 하나의 패션이 되는 문화를 만듭니다.</p>
         <p>소재의 차가운 금속성보다는 손에 닿는 고급스러움을, 복잡한 관절보다는 물 흐르듯 접히는 직관성을 고민합니다. 폴댓을 통해 당신의 공간은 더 넓어지고, 당신의 삶은 더 자유로워질 것입니다.</p>
       </div>
     </section>
@@ -1077,7 +1153,8 @@
 
     <!-- Section: Brand Essence Video -->
     <section class="full-image">
-      <div class="placeholder-box" style="height: 900px;">Video 2</div>
+      <img src="img/brand_essence.png" alt="FOLTHAT Brand Essence - Space Liberator"
+        style="height: 900px; width: 100%; object-fit: cover;">
     </section>
 
     <!-- Section: Brand Essence Text -->
@@ -1090,14 +1167,16 @@
 
     <!-- Section: Mission Video (inset) -->
     <section class="inset-image">
-      <div class="placeholder-box" style="height: 700px;">Video 3</div>
+      <img src="img/brand_mission.png" alt="FOLTHAT Brand Mission - Fold Space, Unfold Life"
+        style="height: 700px; width: 100%; object-fit: cover;">
     </section>
 
     <!-- Section: Brand Mission Text -->
     <section class="text-section">
       <div class="text-section__label">Brand Mission</div>
       <div class="text-section__content">
-        <p>부동산 가격이 삶의 질을 결정하지 않도록, 접는 기술을 통해 공간의 가치를 극대화합니다. 물건이 점유하던 자리를 사람의 활동 공간으로 되돌려줍니다. 실용성에 매몰되어 잃어버렸던 접이식 제품의 '심미적 가치'를 회복시킵니다. FOLTHAT은 더 넓은 삶을 위한 가장 얇은 솔루션을 제공합니다.</p>
+        <p>부동산 가격이 삶의 질을 결정하지 않도록, 접는 기술을 통해 공간의 가치를 극대화합니다. 물건이 점유하던 자리를 사람의 활동 공간으로 되돌려줍니다. 실용성에 매몰되어 잃어버렸던 접이식 제품의
+          '심미적 가치'를 회복시킵니다. FOLTHAT은 더 넓은 삶을 위한 가장 얇은 솔루션을 제공합니다.</p>
       </div>
     </section>
 
@@ -1114,8 +1193,12 @@
       </div>
       <div class="industry-grid__row">
         <div style="flex: 1; min-width: 0; display: flex; flex-direction: column; justify-content: flex-end;">
-          <div style="font-family: 'Asta Sans', sans-serif; font-weight: 400; font-size: 20px; line-height: 1.5; letter-spacing: -0.4px; margin-bottom: 10px; padding-right: 51px;">FOLTHAT's Vision</div>
-          <div style="font-family: 'Asta Sans', sans-serif; font-weight: 700; font-size: 64px; line-height: 1.125; letter-spacing: -1.28px; padding-right: 51px;">Fold Space,<br>Unfold Life</div>
+          <div
+            style="font-family: 'Asta Sans', sans-serif; font-weight: 400; font-size: 20px; line-height: 1.5; letter-spacing: -0.4px; margin-bottom: 10px; padding-right: 51px;">
+            FOLTHAT's Vision</div>
+          <div
+            style="font-family: 'Asta Sans', sans-serif; font-weight: 700; font-size: 64px; line-height: 1.125; letter-spacing: -1.28px; padding-right: 51px;">
+            Fold Space,<br>Unfold Life</div>
         </div>
         <div style="flex: 1; min-width: 0;"><img src="img/section/01/img_04.png" alt="FOLTHAT Product 4"></div>
       </div>
@@ -1123,14 +1206,17 @@
 
     <!-- Section: Core Values Video -->
     <section class="full-image">
-      <div class="placeholder-box" style="height: 900px;">Video 4</div>
+      <img src="img/core_values.png" alt="FOLTHAT Core Values - Efficiency, Premium, Intuition"
+        style="height: 900px; width: 100%; object-fit: cover;">
     </section>
 
     <!-- Section: Core Values Text -->
     <section class="text-section">
       <div class="text-section__label">Core Values</div>
       <div class="text-section__content">
-        <p>FOLTHAT의 3대 핵심 가치는 폴댓이 제품을 선별하고 제작하는 변하지 않는 기준입니다. 공간의 효율화(Efficiency): 0.1평의 가치도 소중히 여기는 구조적 혁신. 소재의 고급화(Premium): '접이식은 약하다'는 편견을 깨는 견고함과 질감. 사용의 직관성(Intuition): 설명서 없이도 누구나 3초 안에 펼치고 접을 수 있는 매끄러움. 이 세 가지 가치는 FOLTHAT의 모든 제품과 경험에 일관되게 적용됩니다.</p>
+        <p>FOLTHAT의 3대 핵심 가치는 폴댓이 제품을 선별하고 제작하는 변하지 않는 기준입니다. 공간의 효율화(Efficiency): 0.1평의 가치도 소중히 여기는 구조적 혁신. 소재의
+          고급화(Premium): '접이식은 약하다'는 편견을 깨는 견고함과 질감. 사용의 직관성(Intuition): 설명서 없이도 누구나 3초 안에 펼치고 접을 수 있는 매끄러움. 이 세 가지 가치는
+          FOLTHAT의 모든 제품과 경험에 일관되게 적용됩니다.</p>
       </div>
     </section>
 
@@ -1186,7 +1272,8 @@
       <section class="text-section">
         <div class="text-section__label">Brand Slogan</div>
         <div class="text-section__content">
-          <p>FOLTHAT의 메인 슬로건은 "우리는 접는 것에 진심입니다(We are serious about folding)"입니다. 이 슬로건은 접이식 제품에 대한 FOLTHAT의 진지한 철학과 헌신을 담고 있습니다. 서브 슬로건 "공간을 접고, 일상을 펼치다"와 "더 넓은 삶을 위한 가장 얇은 솔루션"은 사용자가 FOLTHAT과 함께 경험하게 될 삶의 변화를 직관적으로 전달합니다.</p>
+          <p>FOLTHAT의 메인 슬로건은 "우리는 접는 것에 진심입니다(We are serious about folding)"입니다. 이 슬로건은 접이식 제품에 대한 FOLTHAT의 진지한 철학과 헌신을
+            담고 있습니다. 서브 슬로건 "공간을 접고, 일상을 펼치다"와 "더 넓은 삶을 위한 가장 얇은 솔루션"은 사용자가 FOLTHAT과 함께 경험하게 될 삶의 변화를 직관적으로 전달합니다.</p>
         </div>
       </section>
 
@@ -1274,9 +1361,13 @@
       <section class="text-section">
         <div class="text-section__label">Visual Identity</div>
         <div class="text-section__content">
-          <p>FOLTHAT의 비주얼 아이덴티티는 '접힘(Fold)'의 시각화에서 시작됩니다. 텍스트나 심볼이 접히는 지점을 강조한 레이아웃을 통해, 브랜드의 정체성을 물리적으로 체험하게 합니다. 특히 &lt;FOL&gt;이 접히며 &lt;THAT&gt;이 드러나는 구조는 FOLTHAT의 핵심 철학을 상징합니다.</p>
-          <p>컬러는 Deep Black과 Tech Silver를 메인으로 활용하여 견고함과 기능성을 상징합니다. 이미지는 High-Contrast 스타일로 제품의 디테일과 소재감이 극명하게 드러나는 고화질 사진을 사용하여, 편집샵으로서의 신뢰감과 패션 브랜드로서의 힙함을 동시에 전달합니다.</p>
+          <p>FOLTHAT의 비주얼 아이덴티티는 '접힘(Fold)'의 시각화에서 시작됩니다. 텍스트나 심볼이 접히는 지점을 강조한 레이아웃을 통해, 브랜드의 정체성을 물리적으로 체험하게 합니다. 특히
+            &lt;FOL&gt;이 접히며 &lt;THAT&gt;이 드러나는 구조는 FOLTHAT의 핵심 철학을 상징합니다.</p>
+          <p>컬러는 Deep Black과 Tech Silver를 메인으로 활용하여 견고함과 기능성을 상징합니다. 이미지는 High-Contrast 스타일로 제품의 디테일과 소재감이 극명하게 드러나는 고화질
+            사진을 사용하여, 편집샵으로서의 신뢰감과 패션 브랜드로서의 힙함을 동시에 전달합니다.</p>
         </div>
+      </section>
+
       </section>
     </div>
 
@@ -1329,8 +1420,10 @@
     <section class="text-section">
       <div class="text-section__label">Color &amp; Typography</div>
       <div class="text-section__content">
-        <p>FOLTHAT의 컬러 스택은 Deep Black과 Tech Silver를 중심으로 구성됩니다. 견고함과 기능성을 상징하는 이 메인 컬러는 접이식 제품의 프리미엄함을 강조하며, 현대적이고 세련된 브랜드 이미지를 형성합니다.</p>
-        <p>타이포그래피는 깔끔하고 직관적인 서체를 사용하여 FOLTHAT의 핵심 가치인 '직관성'을 시각적으로 구현합니다. 다양한 접점에서 일관된 브랜드 경험을 제공하며, 편집샵으로서의 신뢰감과 라이프스타일 브랜드로서의 감성을 균형있게 전달합니다.</p>
+        <p>FOLTHAT의 컬러 스택은 Deep Black과 Tech Silver를 중심으로 구성됩니다. 견고함과 기능성을 상징하는 이 메인 컬러는 접이식 제품의 프리미엄함을 강조하며, 현대적이고 세련된
+          브랜드 이미지를 형성합니다.</p>
+        <p>타이포그래피는 깔끔하고 직관적인 서체를 사용하여 FOLTHAT의 핵심 가치인 '직관성'을 시각적으로 구현합니다. 다양한 접점에서 일관된 브랜드 경험을 제공하며, 편집샵으로서의 신뢰감과 라이프스타일
+          브랜드로서의 감성을 균형있게 전달합니다.</p>
       </div>
     </section>
 
@@ -1390,4 +1483,5 @@
   </main>
 
 </body>
+
 </html>

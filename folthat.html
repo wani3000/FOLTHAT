@@ -480,6 +480,59 @@
       background: #E5E5E5;
     }
 
+    .keyvisual-list {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 60px 40px;
+      background: #F5F5F5;
+    }
+
+    .keyvisual-list__item {
+      display: flex;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid #D0D0D0;
+    }
+
+    .keyvisual-list__item:last-child {
+      border-bottom: none;
+    }
+
+    .keyvisual-list__number {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1.5px solid #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Roboto', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: #000;
+      flex-shrink: 0;
+      margin-right: 40px;
+    }
+
+    .keyvisual-list__title {
+      font-family: 'Roboto', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      color: #000;
+      min-width: 180px;
+      margin-right: 40px;
+    }
+
+    .keyvisual-list__desc {
+      font-family: 'Roboto', sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      color: #000;
+    }
+
     .keyvisual-card img.kv-icon {
       position: absolute;
       top: 20px;
@@ -1076,6 +1129,37 @@
         padding: 0 20px;
       }
 
+      /* Keyvisual List Mobile */
+      .keyvisual-list {
+        padding: 30px 20px;
+      }
+
+      .keyvisual-list__item {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 16px 0;
+        gap: 8px;
+      }
+
+      .keyvisual-list__number {
+        width: 28px;
+        height: 28px;
+        font-size: 12px;
+        margin-right: 0;
+        margin-bottom: 4px;
+      }
+
+      .keyvisual-list__title {
+        font-size: 14px;
+        min-width: auto;
+        margin-right: 0;
+      }
+
+      .keyvisual-list__desc {
+        font-size: 14px;
+        padding-left: 0;
+      }
+
       /* Color Section */
       .color-section {
         padding: 0 20px;
@@ -1434,10 +1518,41 @@
     <!-- Section: Keyvisual Grid -->
     <div class="section-light">
       <section class="keyvisual-grid">
-        <!-- Row 1: Gray Box + Symbol -->
+        <!-- Row 1: Key Visual List + Symbol -->
         <div class="keyvisual-grid__row">
           <div class="keyvisual-card keyvisual-card--square">
-            <div class="keyvisual-card__gray"></div>
+            <div class="keyvisual-list">
+              <div class="keyvisual-list__item">
+                <div class="keyvisual-list__number">①</div>
+                <div class="keyvisual-list__title">Key Visual A-1</div>
+                <div class="keyvisual-list__desc">Perfect Line</div>
+              </div>
+              <div class="keyvisual-list__item">
+                <div class="keyvisual-list__number">②</div>
+                <div class="keyvisual-list__title">Key Visual A-2</div>
+                <div class="keyvisual-list__desc">Line Focus</div>
+              </div>
+              <div class="keyvisual-list__item">
+                <div class="keyvisual-list__number">③</div>
+                <div class="keyvisual-list__title">Key Visual A-3</div>
+                <div class="keyvisual-list__desc">Line Illustration</div>
+              </div>
+              <div class="keyvisual-list__item">
+                <div class="keyvisual-list__number">④</div>
+                <div class="keyvisual-list__title">Key Visual B-1</div>
+                <div class="keyvisual-list__desc">Line Text</div>
+              </div>
+              <div class="keyvisual-list__item">
+                <div class="keyvisual-list__number">⑤</div>
+                <div class="keyvisual-list__title">Key Visual B-2</div>
+                <div class="keyvisual-list__desc">Line Image</div>
+              </div>
+              <div class="keyvisual-list__item">
+                <div class="keyvisual-list__number">⑥</div>
+                <div class="keyvisual-list__title">Key Visual C</div>
+                <div class="keyvisual-list__desc">Gradient Pattern</div>
+              </div>
+            </div>
           </div>
           <div class="keyvisual-card keyvisual-card--wide">
             <div class="keyvisual-card__symbol">

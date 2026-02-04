@@ -171,6 +171,42 @@
       object-fit: cover;
     }
 
+    /* ===== GUIDE SECTIONS (Color / Icon) ===== */
+    .guide-color-section {
+      padding: 0 100px;
+    }
+    .guide-color-section img {
+      width: 100%;
+      max-width: 100%;
+    }
+    /* Web: full-width black (like Color & Typography Image), icon image same width as color guide */
+    .guide-icon-wrap {
+      width: 100%;
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 120px 0;
+    }
+    .guide-icon-black-box {
+      background: transparent;
+      width: calc(100vw - 160px);
+      max-width: calc(100vw - 160px);
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+    }
+    .guide-icon-black-box .guide-icon-img {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      vertical-align: middle;
+    }
+
     /* ===== CORE VALUES ===== */
     .core-values {
       padding: 0 100px;
@@ -331,8 +367,10 @@
     }
 
     .logo-history__logo-box img {
-      max-width: 252px;
-      max-height: 50px;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
     }
 
     /* ===== LOGO VARIANTS ===== */
@@ -455,10 +493,18 @@
       flex: 1;
     }
 
+    .keyvisual-card:has(img.kv-image) {
+      padding: 0;
+      align-items: stretch;
+      justify-content: stretch;
+    }
+
     .keyvisual-card img.kv-image {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center;
+      display: block;
     }
 
     .keyvisual-card__symbol {
@@ -980,6 +1026,7 @@
       /* Industry Grid */
       .industry-grid {
         padding: 0 20px;
+        gap: 10px;
       }
 
       .industry-grid__row {
@@ -990,11 +1037,36 @@
 
       .industry-grid__row>div {
         width: 100%;
+        height: 400px;
+        min-height: 400px;
+        max-height: 400px;
+        flex: 0 0 400px;
+      }
+
+      .industry-grid__row>div:empty {
+        display: none;
+        height: 0;
+        min-height: 0;
+        max-height: 0;
+        flex: 0 0 0;
+      }
+
+      .industry-grid__row>div[style*="justify-content: flex-end"] {
+        display: none !important;
+        height: 0 !important;
+        min-height: 0 !important;
+        max-height: 0 !important;
+        flex: 0 0 0 !important;
+        overflow: hidden;
       }
 
       .industry-grid__row>div img {
-        height: auto;
-        min-height: 300px;
+        width: 100%;
+        height: 100%;
+        min-height: 400px;
+        object-fit: cover;
+        object-position: center;
+        display: block;
       }
 
       /* Core Values Detailed */
@@ -1062,7 +1134,9 @@
       }
 
       .logo-history__logo-box {
-        height: 200px;
+        height: 350px;
+        min-height: 350px;
+        max-height: 350px;
       }
 
       /* Logo Variants */
@@ -1141,18 +1215,33 @@
 
       .keyvisual-card {
         width: 100%;
-        height: 300px;
+        height: 400px;
+        min-height: 400px;
+        max-height: 400px;
       }
 
       .keyvisual-card--square,
       .keyvisual-card--wide,
       .keyvisual-card--third {
         width: 100%;
+        height: 400px;
+        min-height: 400px;
+        max-height: 400px;
       }
 
-      .keyvisual-card--square:first-child {
-        height: auto;
+      .keyvisual-card:has(img.kv-image) {
+        padding: 0;
+        display: block;
+      }
+
+      .keyvisual-card img.kv-image {
+        width: 100%;
+        height: 400px;
         min-height: 400px;
+        max-height: 400px;
+        object-fit: cover;
+        object-position: center;
+        display: block;
       }
 
       .keyvisual-card__symbol img {
@@ -1272,10 +1361,50 @@
         min-height: 200px;
       }
 
-      /* Product Grid Mobile Fix */
+      /* Product Grid Mobile Fix – Brand Mission 5 images: exactly 10px between each */
       .industry-grid[style*="padding-top: 200px"] {
-        padding-top: 80px !important;
-        padding-bottom: 80px !important;
+        padding-top: 10px !important;
+        padding-bottom: 10px !important;
+      }
+      /* Second row: only img_04 visible; remove internal gap so row height = 400px (no extra space above img_04) */
+      .industry-grid[style*="padding-top: 200px"] .industry-grid__row:nth-child(2) {
+        gap: 0;
+      }
+
+      /* Brand Mission gallery: 5 images same size as img_02, equal spacing (mobile only) */
+      .full-image.mission-gallery-img {
+        padding: 0 20px;
+        margin-bottom: 0;
+      }
+      .industry-grid[style*="padding-top: 200px"] + .full-image.mission-gallery-img {
+        margin-top: 0;
+      }
+      .full-image.mission-gallery-img img {
+        width: 100%;
+        height: 400px !important;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+      }
+
+      /* Color guide: same width as typography-showcase on mobile (20px side padding) */
+      .guide-color-section {
+        padding: 0 20px;
+      }
+
+      /* Icon guide: same horizontal space as color guide (20px side), so icon image width = color guide width */
+      .guide-icon-wrap {
+        padding: 120px 20px;
+      }
+      .guide-icon-black-box {
+        width: 100%;
+        padding: 20px 0;
+        box-sizing: border-box;
+      }
+      .guide-icon-black-box .guide-icon-img {
+        width: 100%;
+        max-width: 100%;
+        display: block;
       }
 
       .industry-grid__row>div[style*="padding-right: 51px"] div {
@@ -1335,11 +1464,6 @@
       </div>
     </section>
 
-    <!-- Section: Video 1 -->
-    <section class="full-image">
-      <div class="placeholder-box" style="height: 900px;">Video 1</div>
-    </section>
-
     <!-- Section: Brand Essence Video -->
     <section class="full-image">
       <img src="img/brand_essence.png" alt="FOLTHAT Brand Essence - Space Liberator"
@@ -1369,8 +1493,8 @@
       </div>
     </section>
 
-    <!-- Section: Product Showcase Image -->
-    <section class="full-image">
+    <!-- Section: Product Showcase Image (Brand Mission gallery - mobile: same size as img_02) -->
+    <section class="full-image mission-gallery-img">
       <img src="img/section/01/img_01.png" alt="FOLTHAT Product Showcase">
     </section>
 
@@ -1384,17 +1508,17 @@
         <div style="flex: 1; min-width: 0; display: flex; flex-direction: column; justify-content: flex-end;">
           <div
             style="font-family: 'Asta Sans', sans-serif; font-weight: 400; font-size: 20px; line-height: 1.5; letter-spacing: -0.4px; margin-bottom: 10px; padding-right: 51px;">
-            FOLTHAT's Vision</div>
+            </div>
           <div
             style="font-family: 'Asta Sans', sans-serif; font-weight: 700; font-size: 64px; line-height: 1.125; letter-spacing: -1.28px; padding-right: 51px;">
-            Fold Space,<br>Unfold Life</div>
+            </div>
         </div>
         <div style="flex: 1; min-width: 0;"><img src="img/section/01/img_04.png" alt="FOLTHAT Product 4"></div>
       </div>
     </section>
 
-    <!-- Section: Core Values Video -->
-    <section class="full-image">
+    <!-- Section: Core Values Video (Brand Mission gallery on mobile: same size as img_02) -->
+    <section class="full-image mission-gallery-img">
       <img src="img/core_values.png" alt="FOLTHAT Core Values - Efficiency, Premium, Intuition"
         style="height: 900px; width: 100%; object-fit: cover;">
     </section>
@@ -1453,7 +1577,7 @@
 
     <!-- Section: Slogan Image -->
     <section class="full-image">
-      <div class="placeholder-box" style="height: 800px;">Slogan Image</div>
+      <img src="img/brand/brand_00.png" alt="FOLTHAT Brand Slogan" style="height: 800px; width: 100%; object-fit: cover;">
     </section>
 
     <!-- Section: Brand Slogan Text -->
@@ -1473,7 +1597,7 @@
           <div class="logo-history__divider"></div>
           <div class="logo-history__desc">접음 — 공간을 확보하는 가장 스마트한 행위</div>
           <div class="logo-history__logo-box">
-            <div class="placeholder-box">Logo</div>
+            <img src="img/brand/Brand_01.png" alt="FOLTHAT Brand 01" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
           </div>
         </div>
         <div class="logo-history__item">
@@ -1481,7 +1605,7 @@
           <div class="logo-history__divider"></div>
           <div class="logo-history__desc">바로 그것 — 당신이 찾던 접이식의 정답</div>
           <div class="logo-history__logo-box">
-            <div class="placeholder-box">Logo</div>
+            <img src="img/brand/Brand_02.png" alt="FOLTHAT Brand 02" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
           </div>
         </div>
         <div class="logo-history__item">
@@ -1489,7 +1613,7 @@
           <div class="logo-history__divider"></div>
           <div class="logo-history__desc">공간의 효율화 — 0.1평의 가치도 소중히 여기는 구조적 혁신</div>
           <div class="logo-history__logo-box">
-            <div class="placeholder-box">Logo</div>
+            <img src="img/brand/Brand_03.png" alt="FOLTHAT Brand 03" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
           </div>
         </div>
         <div class="logo-history__item">
@@ -1497,7 +1621,7 @@
           <div class="logo-history__divider"></div>
           <div class="logo-history__desc">소재의 고급화 — 접이식은 약하다는 편견을 깨는 견고함과 질감</div>
           <div class="logo-history__logo-box">
-            <div class="placeholder-box">Logo</div>
+            <img src="img/brand/Brand_04.png" alt="FOLTHAT Brand 04" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
           </div>
         </div>
         <div class="logo-history__item">
@@ -1505,15 +1629,11 @@
           <div class="logo-history__divider"></div>
           <div class="logo-history__desc">사용의 직관성 — 설명서 없이도 3초 안에 펼치고 접을 수 있는 매끄러움</div>
           <div class="logo-history__logo-box">
-            <div class="placeholder-box">Logo</div>
+            <img src="img/brand/Brand_05.png" alt="FOLTHAT Brand 05" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
           </div>
         </div>
       </section>
 
-      <!-- Section: Logo Video (inset) -->
-      <section class="inset-image" style="padding-top: 200px;">
-        <div class="placeholder-box" style="height: 700px;">Video 5</div>
-      </section>
     </div>
 
     <!-- Section: Logo Variants -->
@@ -1535,18 +1655,11 @@
             </div>
           </div>
         </div>
-        <div class="logo-variants__video">
-          <div class="placeholder-box" style="height: 640px;">Video 6</div>
-        </div>
       </section>
     </div>
 
     <!-- Section: Paper / Keyvisual -->
     <div class="section-light">
-      <section class="full-image">
-        <div class="placeholder-box" style="height: 800px;">Paper Image</div>
-      </section>
-
       <section class="text-section">
         <div class="text-section__label">Key Visual</div>
         <div class="text-section__content">
@@ -1633,16 +1746,6 @@
       </section>
     </div>
 
-    <!-- Section: Keyvisual Hero -->
-    <section class="keyvisual-hero">
-      <div class="placeholder-box" style="height: 900px;">Keyvisual Hero</div>
-    </section>
-
-    <!-- Section: Color & Typography -->
-    <section class="full-image">
-      <div class="placeholder-box" style="height: 800px;">Color & Typography Image</div>
-    </section>
-
     <section class="text-section">
       <div class="text-section__label">Color &amp; Typography</div>
       <div class="text-section__content">
@@ -1703,8 +1806,17 @@
       </div>
     </section>
 
-    <!-- Section: Black Space -->
-    <section style="background: #000; height: 800px;"></section>
+    <!-- Section: Color Guide (120px below Space Liberator) -->
+    <section class="guide-color-section" style="margin-top: 120px; margin-bottom: 120px;">
+      <img src="img/color%20guide.png" alt="FOLTHAT Color Guide" style="width: 100%; display: block;">
+    </section>
+
+    <!-- Section: Icon Guide in black box (20px padding, centered) -->
+    <section class="guide-icon-wrap" style="margin-bottom: 120px;">
+      <div class="guide-icon-black-box">
+        <img src="img/icon%20guide.png" alt="FOLTHAT Icon Guide" class="guide-icon-img">
+      </div>
+    </section>
 
   </main>
 

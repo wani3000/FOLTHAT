@@ -7,9 +7,64 @@
   <title>FOLTHAT - 접음으로써 펼쳐지는 가능성</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Noto+Sans+KR:wght@400;500;600&family=Asta+Sans:wght@400;500;600;700&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Noto+Sans+KR:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <style>
+    @font-face {
+      font-family: 'Paperlogy';
+      src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-1Thin.woff2') format('woff2');
+      font-weight: 100;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Paperlogy';
+      src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-2ExtraLight.woff2') format('woff2');
+      font-weight: 200;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Paperlogy';
+      src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-3Light.woff2') format('woff2');
+      font-weight: 300;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Paperlogy';
+      src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-4Regular.woff2') format('woff2');
+      font-weight: 400;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Paperlogy';
+      src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-5Medium.woff2') format('woff2');
+      font-weight: 500;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Paperlogy';
+      src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-6SemiBold.woff2') format('woff2');
+      font-weight: 600;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Paperlogy';
+      src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-7Bold.woff2') format('woff2');
+      font-weight: 700;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Paperlogy';
+      src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-8ExtraBold.woff2') format('woff2');
+      font-weight: 800;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Paperlogy';
+      src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-9Black.woff2') format('woff2');
+      font-weight: 900;
+      font-style: normal;
+    }
+  </style>
   <style>
     *,
     *::before,
@@ -20,7 +75,7 @@
     }
 
     body {
-      font-family: 'Noto Sans KR', 'Roboto', sans-serif;
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
       color: #000;
       background: #fff;
       overflow-x: hidden;
@@ -49,7 +104,14 @@
       padding: 20px 30px;
       background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(10px);
+      opacity: 0;
+      transform: translateY(-100%);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .header.visible {
       opacity: 1;
+      transform: translateY(0);
     }
 
     .header-logo {
@@ -127,12 +189,25 @@
       transform: translate(-50%, -50%);
       text-align: center;
       color: #FFFFFF;
-      font-family: 'Noto Sans KR', sans-serif;
+      font-family: 'Paperlogy', 'Pretendard', sans-serif;
       font-size: 40px;
-      font-weight: 500;
+      font-weight: 600;
       line-height: 1.6;
       white-space: pre-line;
       z-index: 2;
+      opacity: 0;
+      animation: heroTextFadeUp 1.5s ease-out 0.5s forwards;
+    }
+
+    @keyframes heroTextFadeUp {
+      from {
+        opacity: 0;
+        transform: translate(-50%, calc(-50% + 40px));
+      }
+      to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+      }
     }
 
     /* ===== INSET IMAGE ===== */
@@ -142,6 +217,11 @@
 
     .inset-image img {
       width: 100%;
+    }
+
+    .inset-image.hover-zoom {
+      overflow: hidden;
+      position: relative;
     }
 
     /* ===== INDUSTRY GRID ===== */
@@ -190,8 +270,8 @@
     }
     .guide-icon-black-box {
       background: transparent;
-      width: calc(100vw - 160px);
-      max-width: calc(100vw - 160px);
+      width: calc(100vw - 400px);
+      max-width: calc(100vw - 400px);
       margin: 0 auto;
       padding: 20px;
       display: flex;
@@ -251,7 +331,7 @@
     }
 
     .core-values-detailed__title h2 {
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Paperlogy', sans-serif;
       font-weight: 700;
       font-size: 64px;
       line-height: 1.3;
@@ -290,7 +370,7 @@
     }
 
     .core-values-detailed__number span {
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Paperlogy', sans-serif;
       font-weight: 700;
       font-size: 64px;
       line-height: 1;
@@ -408,7 +488,7 @@
       position: absolute;
       top: 40px;
       left: 40px;
-      font-family: 'Asta Sans', 'Noto Sans KR', sans-serif;
+      font-family: 'Pretendard', sans-serif;
       font-weight: 400;
       font-size: 14px;
       line-height: 1.4;
@@ -540,7 +620,7 @@
       bottom: 50%;
       left: 50%;
       transform: translate(-50%, 50%);
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Pretendard', sans-serif;
       font-size: 14px;
       font-weight: 400;
       color: #000;
@@ -657,7 +737,7 @@
     }
 
     .typography-showcase__label {
-      font-family: 'Asta Sans', 'Noto Sans KR', sans-serif;
+      font-family: 'Paperlogy', sans-serif;
       font-weight: 400;
       font-size: 42px;
       line-height: 1.3;
@@ -665,7 +745,7 @@
     }
 
     .typography-showcase__font-name {
-      font-family: 'Asta Sans', 'Noto Sans KR', sans-serif;
+      font-family: 'Paperlogy', sans-serif;
       font-weight: 700;
       font-size: 64px;
       line-height: 1.2;
@@ -677,7 +757,7 @@
     }
 
     .typography-showcase__lang {
-      font-family: 'Asta Sans', 'Noto Sans KR', sans-serif;
+      font-family: 'Pretendard', sans-serif;
       font-weight: 500;
       font-size: 14px;
       line-height: 1.5;
@@ -687,7 +767,7 @@
     }
 
     .typography-showcase__sample {
-      font-family: 'Asta Sans', 'Noto Sans KR', sans-serif;
+      font-family: 'Paperlogy', sans-serif;
       font-weight: 700;
       font-size: 48px;
       line-height: 1.4;
@@ -706,7 +786,7 @@
     }
 
     .typography-showcase__column-label {
-      font-family: 'Asta Sans', 'Noto Sans KR', sans-serif;
+      font-family: 'Pretendard', sans-serif;
       font-weight: 500;
       font-size: 14px;
       line-height: 1.5;
@@ -716,7 +796,7 @@
     }
 
     .typography-showcase__column-text {
-      font-family: 'Asta Sans', 'Noto Sans KR', sans-serif;
+      font-family: 'Paperlogy', sans-serif;
       font-weight: 600;
       font-size: 32px;
       line-height: 1.5;
@@ -967,6 +1047,152 @@
       font-size: 14px;
     }
 
+    /* ===== SCROLL ANIMATIONS ===== */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    .animate-on-scroll.animated {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Prevent scale transform on hover-zoom containers during scroll animation */
+    .hover-zoom.animate-on-scroll {
+      transform: translateY(50px);
+    }
+
+    .hover-zoom.animate-on-scroll.animated {
+      transform: translateY(0);
+    }
+
+    .animate-on-scroll.delay-1 {
+      transition-delay: 0.1s;
+    }
+
+    .animate-on-scroll.delay-2 {
+      transition-delay: 0.2s;
+    }
+
+    .animate-on-scroll.delay-3 {
+      transition-delay: 0.3s;
+    }
+
+    /* ===== HOVER EFFECTS ===== */
+    .hover-zoom {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hover-zoom img {
+      transition: transform 0.6s ease-out;
+      will-change: transform;
+      transform: scale(1);
+      display: block;
+    }
+
+    /* Only apply hover on devices that support hover (desktop) */
+    @media (hover: hover) and (pointer: fine) {
+      .hover-zoom:hover img {
+        transform: scale(1.08) !important;
+      }
+
+      .logo-history__logo-box.hover-zoom:hover img,
+      .keyvisual-card.hover-zoom:hover img.kv-image {
+        transform: scale(1.08) !important;
+      }
+    }
+
+    /* Specific hover effects for different image containers */
+    .full-image.hover-zoom,
+    .inset-image.hover-zoom,
+    .industry-grid__row > div.hover-zoom,
+    .logo-history__logo-box.hover-zoom,
+    .keyvisual-card.hover-zoom {
+      overflow: hidden;
+    }
+
+    .logo-history__logo-box.hover-zoom img,
+    .keyvisual-card.hover-zoom img.kv-image {
+      transition: transform 0.6s ease-out;
+    }
+
+    /* ===== COLOR GUIDE TABLE ===== */
+    .color-guide-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .color-guide-table__row {
+      display: flex;
+      align-items: center;
+      min-height: 160px;
+      border-bottom: 1px solid #fff;
+      padding: 0 60px;
+    }
+
+    .color-guide-table__row:last-child {
+      border-bottom: none;
+    }
+
+    .color-guide-table__color-name {
+      flex: 0 0 280px;
+      color: #fff;
+      font-size: 22px;
+      font-weight: 400;
+      line-height: 1.4;
+      letter-spacing: 0.5px;
+    }
+
+    .color-guide-table__info-group {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 0 80px;
+    }
+
+    .color-guide-table__cmyk,
+    .color-guide-table__rgb,
+    .color-guide-table__hex {
+      font-size: 18px;
+      font-weight: 400;
+      color: #fff;
+      letter-spacing: 0.3px;
+    }
+
+    .color-guide-table__pantone {
+      flex: 0 0 auto;
+      font-size: 18px;
+      font-weight: 400;
+      color: #fff;
+      letter-spacing: 0.3px;
+    }
+
+    /* Grayscale rows */
+    .color-guide-table__row--grayscale .color-guide-table__color-name {
+      color: #000;
+    }
+
+    .color-guide-table__row--grayscale .color-guide-table__cmyk,
+    .color-guide-table__row--grayscale .color-guide-table__rgb,
+    .color-guide-table__row--grayscale .color-guide-table__hex,
+    .color-guide-table__row--grayscale .color-guide-table__pantone {
+      color: #000;
+    }
+
+    /* Dark grayscale text colors */
+    .color-guide-table__row--dark .color-guide-table__color-name,
+    .color-guide-table__row--dark .color-guide-table__cmyk,
+    .color-guide-table__row--dark .color-guide-table__rgb,
+    .color-guide-table__row--dark .color-guide-table__hex,
+    .color-guide-table__row--dark .color-guide-table__pantone {
+      color: #fff;
+    }
+
     /* ===== MOBILE RESPONSIVE ===== */
     @media (max-width: 768px) {
 
@@ -1006,9 +1232,22 @@
         padding: 0;
       }
 
+      /* Brand essence and mission images mobile height */
+      .full-image.hover-zoom img,
+      .inset-image.hover-zoom img {
+        height: 400px !important;
+        width: 100%;
+        object-fit: cover;
+      }
+
       /* Hero Section Mobile */
       .hero-section {
-        height: 600px;
+        height: 400px;
+      }
+
+      .hero-section__image {
+        height: 400px;
+        object-fit: cover;
       }
 
       .hero-section__text {
@@ -1392,13 +1631,44 @@
         padding: 0 20px;
       }
 
-      /* Icon guide: same horizontal space as color guide (20px side), so icon image width = color guide width */
+      /* Color guide table mobile */
+      .color-guide-table__row {
+        flex-direction: column;
+        min-height: auto;
+        padding: 30px 20px;
+        align-items: flex-start;
+      }
+
+      .color-guide-table__color-name {
+        flex: none;
+        font-size: 18px;
+        margin-bottom: 20px;
+        text-align: left;
+      }
+
+      .color-guide-table__info-group {
+        padding: 0;
+        gap: 10px;
+        margin-bottom: 15px;
+        align-items: flex-start;
+      }
+
+      .color-guide-table__cmyk,
+      .color-guide-table__rgb,
+      .color-guide-table__hex,
+      .color-guide-table__pantone {
+        font-size: 15px;
+        text-align: left;
+      }
+
+      /* Icon guide: mobile full width with 20px side padding */
       .guide-icon-wrap {
-        padding: 120px 20px;
+        padding: 80px 20px;
       }
       .guide-icon-black-box {
         width: 100%;
-        padding: 20px 0;
+        max-width: 100%;
+        padding: 40px 20px;
         box-sizing: border-box;
       }
       .guide-icon-black-box .guide-icon-img {
@@ -1453,7 +1723,7 @@
     </section>
 
     <!-- Section: Brand Story Text -->
-    <section class="text-section">
+    <section class="text-section animate-on-scroll">
       <div class="text-section__label">Brand Story</div>
       <div class="text-section__content">
         <p>당신의 1평은 얼마입니까? 치솟는 부동산 가격 속에서 우리는 우리가 소유한 물건들에게 값비싼 임대료를 내어주고 있습니다. 일 년에 한 번 쓰는 캐리어, 손님이 올 때만 펴는 테이블, 의지로 샀지만
@@ -1465,13 +1735,13 @@
     </section>
 
     <!-- Section: Brand Essence Video -->
-    <section class="full-image">
+    <section class="full-image hover-zoom animate-on-scroll">
       <img src="img/brand_essence.png" alt="FOLTHAT Brand Essence - Space Liberator"
         style="height: 900px; width: 100%; object-fit: cover;">
     </section>
 
     <!-- Section: Brand Essence Text -->
-    <section class="text-section">
+    <section class="text-section animate-on-scroll">
       <div class="text-section__label">Brand Essence</div>
       <div class="text-section__content">
         <p>FOLTHAT의 브랜드 본질은 "Space Liberator(공간 해방자)"입니다. 우리는 단순히 가구를 파는 것이 아니라, 물리적 한계에 갇힌 현대인의 삶에 '여백'을 선물합니다.</p>
@@ -1479,13 +1749,13 @@
     </section>
 
     <!-- Section: Mission Video (inset) -->
-    <section class="inset-image">
+    <section class="inset-image hover-zoom animate-on-scroll">
       <img src="img/brand_mission.png" alt="FOLTHAT Brand Mission - Fold Space, Unfold Life"
         style="height: 700px; width: 100%; object-fit: cover;">
     </section>
 
     <!-- Section: Brand Mission Text -->
-    <section class="text-section">
+    <section class="text-section animate-on-scroll">
       <div class="text-section__label">Brand Mission</div>
       <div class="text-section__content">
         <p>부동산 가격이 삶의 질을 결정하지 않도록, 접는 기술을 통해 공간의 가치를 극대화합니다. 물건이 점유하던 자리를 사람의 활동 공간으로 되돌려줍니다. 실용성에 매몰되어 잃어버렸던 접이식 제품의
@@ -1494,15 +1764,15 @@
     </section>
 
     <!-- Section: Product Showcase Image (Brand Mission gallery - mobile: same size as img_02) -->
-    <section class="full-image mission-gallery-img">
+    <section class="full-image mission-gallery-img hover-zoom animate-on-scroll">
       <img src="img/section/01/img_01.png" alt="FOLTHAT Product Showcase">
     </section>
 
     <!-- Section: Product Grid -->
-    <section class="industry-grid" style="padding-top: 200px; padding-bottom: 200px;">
+    <section class="industry-grid animate-on-scroll" style="padding-top: 200px; padding-bottom: 200px;">
       <div class="industry-grid__row">
-        <div style="flex: 1; min-width: 0;"><img src="img/section/01/img_02.png" alt="FOLTHAT Product 1"></div>
-        <div style="flex: 1; min-width: 0;"><img src="img/section/01/img_03.png" alt="FOLTHAT Product 2"></div>
+        <div class="hover-zoom" style="flex: 1; min-width: 0;"><img src="img/section/01/img_02.png" alt="FOLTHAT Product 1"></div>
+        <div class="hover-zoom" style="flex: 1; min-width: 0;"><img src="img/section/01/img_03.png" alt="FOLTHAT Product 2"></div>
       </div>
       <div class="industry-grid__row">
         <div style="flex: 1; min-width: 0; display: flex; flex-direction: column; justify-content: flex-end;">
@@ -1513,18 +1783,18 @@
             style="font-family: 'Asta Sans', sans-serif; font-weight: 700; font-size: 64px; line-height: 1.125; letter-spacing: -1.28px; padding-right: 51px;">
             </div>
         </div>
-        <div style="flex: 1; min-width: 0;"><img src="img/section/01/img_04.png" alt="FOLTHAT Product 4"></div>
+        <div class="hover-zoom" style="flex: 1; min-width: 0;"><img src="img/section/01/img_04.png" alt="FOLTHAT Product 4"></div>
       </div>
     </section>
 
     <!-- Section: Core Values Video (Brand Mission gallery on mobile: same size as img_02) -->
-    <section class="full-image mission-gallery-img">
+    <section class="full-image mission-gallery-img hover-zoom animate-on-scroll">
       <img src="img/core_values.png" alt="FOLTHAT Core Values - Efficiency, Premium, Intuition"
         style="height: 900px; width: 100%; object-fit: cover;">
     </section>
 
     <!-- Section: Core Values Text -->
-    <section class="text-section">
+    <section class="text-section animate-on-scroll">
       <div class="text-section__label">Core Values</div>
       <div class="text-section__content">
         <p>FOLTHAT의 3대 핵심 가치는 폴댓이 제품을 선별하고 제작하는 변하지 않는 기준입니다. 공간의 효율화(Efficiency): 0.1평의 가치도 소중히 여기는 구조적 혁신. 소재의
@@ -1534,7 +1804,7 @@
     </section>
 
     <!-- Section: Core Values Details -->
-    <section class="core-values-detailed">
+    <section class="core-values-detailed animate-on-scroll">
       <div class="core-values-detailed__header">
         <div class="core-values-detailed__title">
           <h2>Core Values</h2>
@@ -1576,13 +1846,13 @@
     </section>
 
     <!-- Section: Slogan Image -->
-    <section class="full-image">
+    <section class="full-image hover-zoom animate-on-scroll">
       <img src="img/brand/brand_00.png" alt="FOLTHAT Brand Slogan" style="height: 800px; width: 100%; object-fit: cover;">
     </section>
 
     <!-- Section: Brand Slogan Text -->
     <div class="section-light">
-      <section class="text-section">
+      <section class="text-section animate-on-scroll">
         <div class="text-section__label">Brand Slogan</div>
         <div class="text-section__content">
           <p>FOLTHAT의 메인 슬로건은 "우리는 접는 것에 진심입니다(We are serious about folding)"입니다. 이 슬로건은 접이식 제품에 대한 FOLTHAT의 진지한 철학과 헌신을
@@ -1591,44 +1861,44 @@
       </section>
 
       <!-- Section: Brand Philosophy -->
-      <section class="logo-history">
-        <div class="logo-history__item">
+      <section class="logo-history animate-on-scroll">
+        <div class="logo-history__item delay-1">
           <div class="logo-history__year">Fold</div>
           <div class="logo-history__divider"></div>
           <div class="logo-history__desc">접음 — 공간을 확보하는 가장 스마트한 행위</div>
-          <div class="logo-history__logo-box">
+          <div class="logo-history__logo-box hover-zoom">
             <img src="img/brand/Brand_01.png" alt="FOLTHAT Brand 01" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
           </div>
         </div>
-        <div class="logo-history__item">
+        <div class="logo-history__item delay-2">
           <div class="logo-history__year">That</div>
           <div class="logo-history__divider"></div>
           <div class="logo-history__desc">바로 그것 — 당신이 찾던 접이식의 정답</div>
-          <div class="logo-history__logo-box">
+          <div class="logo-history__logo-box hover-zoom">
             <img src="img/brand/Brand_02.png" alt="FOLTHAT Brand 02" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
           </div>
         </div>
-        <div class="logo-history__item">
+        <div class="logo-history__item delay-3">
           <div class="logo-history__year">Efficiency</div>
           <div class="logo-history__divider"></div>
           <div class="logo-history__desc">공간의 효율화 — 0.1평의 가치도 소중히 여기는 구조적 혁신</div>
-          <div class="logo-history__logo-box">
+          <div class="logo-history__logo-box hover-zoom">
             <img src="img/brand/Brand_03.png" alt="FOLTHAT Brand 03" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
           </div>
         </div>
-        <div class="logo-history__item">
+        <div class="logo-history__item delay-1">
           <div class="logo-history__year">Premium</div>
           <div class="logo-history__divider"></div>
           <div class="logo-history__desc">소재의 고급화 — 접이식은 약하다는 편견을 깨는 견고함과 질감</div>
-          <div class="logo-history__logo-box">
+          <div class="logo-history__logo-box hover-zoom">
             <img src="img/brand/Brand_04.png" alt="FOLTHAT Brand 04" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
           </div>
         </div>
-        <div class="logo-history__item">
+        <div class="logo-history__item delay-2">
           <div class="logo-history__year">Intuition</div>
           <div class="logo-history__divider"></div>
           <div class="logo-history__desc">사용의 직관성 — 설명서 없이도 3초 안에 펼치고 접을 수 있는 매끄러움</div>
-          <div class="logo-history__logo-box">
+          <div class="logo-history__logo-box hover-zoom">
             <img src="img/brand/Brand_05.png" alt="FOLTHAT Brand 05" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
           </div>
         </div>
@@ -1638,7 +1908,7 @@
 
     <!-- Section: Logo Variants -->
     <div class="section-light">
-      <section class="logo-variants">
+      <section class="logo-variants animate-on-scroll">
         <div class="logo-variants__main">
           <div class="logo-variants__primary">
             <div class="logo-variants__label">CI Logo EN</div>
@@ -1660,7 +1930,7 @@
 
     <!-- Section: Paper / Keyvisual -->
     <div class="section-light">
-      <section class="text-section">
+      <section class="text-section animate-on-scroll">
         <div class="text-section__label">Key Visual</div>
         <div class="text-section__content">
           <p>FOLTHAT의 키 비주얼은 '공간을 잇다'라는 표현에서 모티브를 얻어 개발되었습니다. 작은 파란 사각형은 접이식 제품이 만들어내는 새로운 공간의 시작점을 상징하며, 제품과 사용자, 그리고 공간을 연결하는 핵심 포인트 역할을 합니다.</p>
@@ -1673,7 +1943,7 @@
 
     <!-- Section: Keyvisual Grid -->
     <div class="section-light">
-      <section class="keyvisual-grid">
+      <section class="keyvisual-grid animate-on-scroll">
         <!-- Row 1: Key Visual List + Symbol -->
         <div class="keyvisual-grid__row">
           <div class="keyvisual-card keyvisual-card--square">
@@ -1736,45 +2006,43 @@
         </div>
         <!-- Row 3: Image + Image -->
         <div class="keyvisual-grid__row">
-          <div class="keyvisual-card keyvisual-card--square">
+          <div class="keyvisual-card keyvisual-card--square hover-zoom">
             <img class="kv-image" src="img/keyvisual/img_keyvisual_01.png" alt="FOLTHAT Keyvisual">
           </div>
-          <div class="keyvisual-card keyvisual-card--wide">
+          <div class="keyvisual-card keyvisual-card--wide hover-zoom">
             <img class="kv-image" src="img/keyvisual/img_keyvisual_02.png" alt="FOLTHAT Keyvisual">
           </div>
         </div>
       </section>
     </div>
 
-    <section class="text-section">
+    <section class="text-section animate-on-scroll">
       <div class="text-section__label">Color &amp; Typography</div>
       <div class="text-section__content">
-        <p>FOLTHAT의 컬러 스택은 Deep Black과 Tech Silver를 중심으로 구성됩니다. 견고함과 기능성을 상징하는 이 메인 컬러는 접이식 제품의 프리미엄함을 강조하며, 현대적이고 세련된
-          브랜드 이미지를 형성합니다.</p>
-        <p>타이포그래피는 깔끔하고 직관적인 서체를 사용하여 FOLTHAT의 핵심 가치인 '직관성'을 시각적으로 구현합니다. 다양한 접점에서 일관된 브랜드 경험을 제공하며, 편집샵으로서의 신뢰감과 라이프스타일
-          브랜드로서의 감성을 균형있게 전달합니다.</p>
+        <p>FOLTHAT의 컬러 시스템은 Primary Blue (#2157ED)와 Secondary Blue (#8AA3F3)를 중심으로 구성되며, 11단계의 Grayscale로 보완됩니다. 브랜드 고유의 블루 컬러는 혁신과 신뢰를 상징하며, 접이식 제품이 만들어내는 '새로운 공간'의 가능성을 시각적으로 전달합니다. Grayscale 시스템은 제품 사진과 콘텐츠가 돋보이도록 균형잡힌 배경을 제공합니다.</p>
+        <p>타이포그래피는 두 가지 서체로 구성됩니다. Pretendard는 본문과 설명, 인터페이스 등 가독성이 중요한 모든 영역에 사용되며, 명확하고 현대적인 커뮤니케이션을 구현합니다. Paperlogy는 제목, 강조 텍스트, 브랜드 메시지 등 시각적 포인트가 필요한 곳에 사용되어 FOLTHAT만의 독특한 개성을 표현합니다. 이 두 서체의 조화는 기능성과 감성, 신뢰와 혁신이라는 브랜드 가치를 균형있게 전달합니다.</p>
       </div>
     </section>
 
-    <!-- Section: Typography Showcase -->
-    <section class="typography-showcase">
+    <!-- Section: Typography Showcase - Paperlogy -->
+    <section class="typography-showcase animate-on-scroll">
       <div class="typography-showcase__item">
         <div class="typography-showcase__header">
           <div class="typography-showcase__label">Typeface</div>
-          <div class="typography-showcase__font-name">Asta Sans</div>
+          <div class="typography-showcase__font-name">Paperlogy</div>
         </div>
       </div>
 
       <div class="typography-showcase__item">
         <div class="typography-showcase__text">
-          <div class="typography-showcase__lang">Latin</div>
+          <div class="typography-showcase__lang">Display / Bold</div>
           <p class="typography-showcase__sample">Fold the space, unfold your life with FOLTHAT</p>
         </div>
       </div>
 
       <div class="typography-showcase__item">
         <div class="typography-showcase__text">
-          <div class="typography-showcase__lang">Korean</div>
+          <div class="typography-showcase__lang">Display / Bold</div>
           <p class="typography-showcase__sample">폴댓, 접는 것에 진심인 공간 해방자</p>
         </div>
       </div>
@@ -1782,25 +2050,49 @@
       <div class="typography-showcase__item">
         <div class="typography-showcase__row">
           <div class="typography-showcase__column">
-            <div class="typography-showcase__column-label">Efficiency</div>
-            <p class="typography-showcase__column-text">0.1평의 가치도 소중히 여기는 구조적 혁신</p>
+            <div class="typography-showcase__column-label">Heading / SemiBold</div>
+            <p class="typography-showcase__column-text">공간을 접고 일상을 펼치다</p>
           </div>
           <div class="typography-showcase__column">
-            <div class="typography-showcase__column-label">Premium</div>
-            <p class="typography-showcase__column-text">접이식은 약하다는 편견을 깨는 견고함과 질감</p>
+            <div class="typography-showcase__column-label">Heading / SemiBold</div>
+            <p class="typography-showcase__column-text">0.1평의 가치도 소중히 여기는 구조적 혁신</p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Typography Showcase - Pretendard -->
+    <section class="typography-showcase animate-on-scroll">
+      <div class="typography-showcase__item">
+        <div class="typography-showcase__header">
+          <div class="typography-showcase__label">Typeface</div>
+          <div class="typography-showcase__font-name" style="font-family: 'Pretendard', sans-serif;">Pretendard</div>
+        </div>
+      </div>
+
+      <div class="typography-showcase__item">
+        <div class="typography-showcase__text">
+          <div class="typography-showcase__lang">Body / Regular</div>
+          <p class="typography-showcase__sample" style="font-family: 'Pretendard', sans-serif; font-weight: 400;">We create furniture that folds space and unfolds possibilities</p>
+        </div>
+      </div>
+
+      <div class="typography-showcase__item">
+        <div class="typography-showcase__text">
+          <div class="typography-showcase__lang">Body / Regular</div>
+          <p class="typography-showcase__sample" style="font-family: 'Pretendard', sans-serif; font-weight: 400;">더 넓은 삶을 위한 가장 얇은 솔루션</p>
         </div>
       </div>
 
       <div class="typography-showcase__item">
         <div class="typography-showcase__row">
           <div class="typography-showcase__column">
-            <div class="typography-showcase__column-label">Intuition</div>
-            <p class="typography-showcase__column-text">설명서 없이도 3초 안에 펼치고 접을 수 있는 매끄러움</p>
+            <div class="typography-showcase__column-label">Body / Medium</div>
+            <p class="typography-showcase__column-text" style="font-family: 'Pretendard', sans-serif; font-weight: 500;">접이식은 약하다는 편견을 깨는 견고함</p>
           </div>
           <div class="typography-showcase__column">
-            <div class="typography-showcase__column-label">Space Liberator</div>
-            <p class="typography-showcase__column-text">더 넓은 삶을 위한 가장 얇은 솔루션</p>
+            <div class="typography-showcase__column-label">Body / SemiBold</div>
+            <p class="typography-showcase__column-text" style="font-family: 'Pretendard', sans-serif; font-weight: 600;">공간의 가치를 극대화하는 기술</p>
           </div>
         </div>
       </div>
@@ -1808,7 +2100,137 @@
 
     <!-- Section: Color Guide (120px below Space Liberator) -->
     <section class="guide-color-section" style="margin-top: 120px; margin-bottom: 120px;">
-      <img src="img/color%20guide.png" alt="FOLTHAT Color Guide" style="width: 100%; display: block;">
+      <div class="color-guide-table">
+        <!-- Primary Blue -->
+        <div class="color-guide-table__row" style="background: #2157ED;">
+          <div class="color-guide-table__color-name">Folthat<br>primary Blue</div>
+          <div class="color-guide-table__info-group">
+            <div class="color-guide-table__cmyk">CMYK : 85 / 65 / 0 / 0</div>
+            <div class="color-guide-table__rgb">RGB : 33 / 87 / 237</div>
+            <div class="color-guide-table__hex">HEX : 2157ED</div>
+          </div>
+          <div class="color-guide-table__pantone">Pantone : 2312312</div>
+        </div>
+
+        <!-- Secondary Blue -->
+        <div class="color-guide-table__row" style="background: #8AA3F3;">
+          <div class="color-guide-table__color-name">Folthat<br>secondary Blue</div>
+          <div class="color-guide-table__info-group">
+            <div class="color-guide-table__cmyk">CMYK : 85 / 65 / 0 / 0</div>
+            <div class="color-guide-table__rgb">RGB : 33 / 87 / 237</div>
+            <div class="color-guide-table__hex">HEX : 2157ED</div>
+          </div>
+          <div class="color-guide-table__pantone">Pantone : 2312312</div>
+        </div>
+
+        <!-- Grayscale 1 -->
+        <div class="color-guide-table__row color-guide-table__row--grayscale" style="background: #EAEAED;">
+          <div class="color-guide-table__color-name">Grayscale</div>
+          <div class="color-guide-table__info-group">
+            <div class="color-guide-table__rgb">RGB : 234 / 234 / 241</div>
+          </div>
+          <div class="color-guide-table__pantone">Pantone 2706C</div>
+        </div>
+
+        <!-- Grayscale 2 -->
+        <div class="color-guide-table__row color-guide-table__row--grayscale" style="background: #F9F9F9;">
+          <div class="color-guide-table__color-name">Grayscale</div>
+          <div class="color-guide-table__info-group">
+            <div class="color-guide-table__rgb">RGB : 249 / 249 / 249</div>
+          </div>
+          <div class="color-guide-table__pantone">#F9F9F9</div>
+        </div>
+
+        <!-- Grayscale 3 -->
+        <div class="color-guide-table__row color-guide-table__row--grayscale" style="background: #E0E0E0;">
+          <div class="color-guide-table__color-name">Grayscale</div>
+          <div class="color-guide-table__info-group">
+            <div class="color-guide-table__rgb">RGB : 224 / 224 / 224</div>
+          </div>
+          <div class="color-guide-table__pantone">#E0E0E0</div>
+        </div>
+
+        <!-- Grayscale 4 -->
+        <div class="color-guide-table__row color-guide-table__row--grayscale" style="background: #C7C7C7;">
+          <div class="color-guide-table__color-name">Grayscale</div>
+          <div class="color-guide-table__info-group">
+            <div class="color-guide-table__rgb">RGB : 199 / 199 / 199</div>
+          </div>
+          <div class="color-guide-table__pantone">#C7C7C7</div>
+        </div>
+
+        <!-- Grayscale 5 -->
+        <div class="color-guide-table__row color-guide-table__row--grayscale" style="background: #AEAEAE;">
+          <div class="color-guide-table__color-name">Grayscale</div>
+          <div class="color-guide-table__info-group">
+            <div class="color-guide-table__rgb">RGB : 174 / 174 / 174</div>
+          </div>
+          <div class="color-guide-table__pantone">#AEAEAE</div>
+        </div>
+
+        <!-- Grayscale 6 -->
+        <div class="color-guide-table__row color-guide-table__row--grayscale" style="background: #959595;">
+          <div class="color-guide-table__color-name">Grayscale</div>
+          <div class="color-guide-table__info-group">
+            <div class="color-guide-table__rgb">RGB : 149 / 149 / 149</div>
+          </div>
+          <div class="color-guide-table__pantone">#959595</div>
+        </div>
+
+        <!-- Grayscale 7 -->
+        <div class="color-guide-table__row color-guide-table__row--grayscale" style="background: #7D7D7D;">
+          <div class="color-guide-table__color-name">Grayscale</div>
+          <div class="color-guide-table__info-group">
+            <div class="color-guide-table__rgb">RGB : 125 / 125 / 125</div>
+          </div>
+          <div class="color-guide-table__pantone">#7D7D7D</div>
+        </div>
+
+        <!-- Grayscale 8 (Dark) -->
+        <div class="color-guide-table__row color-guide-table__row--grayscale color-guide-table__row--dark" style="background: #6E6E6E;">
+          <div class="color-guide-table__color-name">Grayscale</div>
+          <div class="color-guide-table__info-group">
+            <div class="color-guide-table__rgb">RGB : 100 / 100 / 100</div>
+          </div>
+          <div class="color-guide-table__pantone">#6E6E6E</div>
+        </div>
+
+        <!-- Grayscale 9 (Dark) -->
+        <div class="color-guide-table__row color-guide-table__row--grayscale color-guide-table__row--dark" style="background: #383838;">
+          <div class="color-guide-table__color-name">Grayscale</div>
+          <div class="color-guide-table__info-group">
+            <div class="color-guide-table__rgb">RGB : 75 / 75 / 75</div>
+          </div>
+          <div class="color-guide-table__pantone">#383838</div>
+        </div>
+
+        <!-- Grayscale 10 (Dark) -->
+        <div class="color-guide-table__row color-guide-table__row--grayscale color-guide-table__row--dark" style="background: #323232;">
+          <div class="color-guide-table__color-name">Grayscale</div>
+          <div class="color-guide-table__info-group">
+            <div class="color-guide-table__rgb">RGB : 50 / 50 / 50</div>
+          </div>
+          <div class="color-guide-table__pantone">#323232</div>
+        </div>
+
+        <!-- Grayscale 11 (Dark) -->
+        <div class="color-guide-table__row color-guide-table__row--grayscale color-guide-table__row--dark" style="background: #191919;">
+          <div class="color-guide-table__color-name">Grayscale</div>
+          <div class="color-guide-table__info-group">
+            <div class="color-guide-table__rgb">RGB : 25 / 25 / 25</div>
+          </div>
+          <div class="color-guide-table__pantone">#191919</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Iconography Text -->
+    <section class="text-section animate-on-scroll">
+      <div class="text-section__label">Iconography</div>
+      <div class="text-section__content">
+        <p>FOLTHAT의 아이콘 시스템은 명확성과 일관성을 바탕으로 설계되었습니다. 모든 아이콘은 2px 스트로크를 기본으로 하며, 직선과 곡선의 균형잡힌 조화를 통해 현대적이면서도 친근한 느낌을 전달합니다. 접이식 제품의 핵심인 '접힘(fold)' 아이콘을 비롯해, 배송(delivery), 쇼핑(shopping), 커뮤니케이션(communication) 등 사용자 경험의 모든 단계에서 필요한 아이콘을 체계적으로 구성했습니다.</p>
+        <p>아이콘은 웹사이트, 앱, 오프라인 공간 등 다양한 접점에서 일관되게 사용되며, 크기와 색상 변화에도 명확한 가독성을 유지합니다. ID 배지, 건물, 화장실, 레스토랑 등 공간 안내 아이콘부터 장바구니, WiFi, 메일 등 디지털 인터페이스 아이콘까지, FOLTHAT의 모든 커뮤니케이션 채널에서 직관적인 정보 전달을 돕습니다. 이 아이콘 시스템은 브랜드의 '직관성(Intuition)' 가치를 시각적으로 구현하는 핵심 요소입니다.</p>
+      </div>
     </section>
 
     <!-- Section: Icon Guide in black box (20px padding, centered) -->
@@ -1819,6 +2241,54 @@
     </section>
 
   </main>
+
+  <script>
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animated');
+          // Optional: stop observing after animation
+          // observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    // Header scroll animation
+    function handleHeaderVisibility() {
+      const header = document.querySelector('.header');
+      const heroSection = document.querySelector('.hero-section');
+
+      if (heroSection) {
+        const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+        const scrollPosition = window.scrollY;
+
+        if (scrollPosition > heroBottom - 100) {
+          header.classList.add('visible');
+        } else {
+          header.classList.remove('visible');
+        }
+      }
+    }
+
+    // Observe all elements with animate-on-scroll class
+    document.addEventListener('DOMContentLoaded', () => {
+      const animatedElements = document.querySelectorAll('.animate-on-scroll');
+      animatedElements.forEach(element => {
+        observer.observe(element);
+      });
+
+      // Add scroll listener for header
+      window.addEventListener('scroll', handleHeaderVisibility);
+      handleHeaderVisibility(); // Check initial state
+    });
+  </script>
 
 </body>
 

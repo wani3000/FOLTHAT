@@ -1193,6 +1193,80 @@
       color: #fff;
     }
 
+    /* ===== MOCKUP SECTION ===== */
+    .mockup-section {
+      padding: 0 100px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .mockup-web {
+      background: #DDDDE0;
+      width: 100%;
+      aspect-ratio: 1718 / 1600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .mockup-web img {
+      width: 89.1%;
+      height: auto;
+      display: block;
+    }
+
+    .mockup-grid {
+      display: flex;
+      gap: 4px;
+      width: 100%;
+    }
+
+    .mockup-grid__left {
+      flex: 1;
+      overflow: hidden;
+    }
+
+    .mockup-grid__left img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .mockup-grid__right {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .mockup-grid__right-top,
+    .mockup-grid__right-bottom {
+      flex: 1;
+      overflow: hidden;
+    }
+
+    .mockup-grid__right-top img,
+    .mockup-grid__right-bottom img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .mockup-full {
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .mockup-full img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
     /* ===== MOBILE RESPONSIVE ===== */
     @media (max-width: 768px) {
 
@@ -1685,6 +1759,41 @@
       .industry-grid__row>div[style*="padding-right: 51px"] div:last-child {
         font-size: 36px !important;
         line-height: 1.2 !important;
+      }
+
+      /* Mockup Section Mobile */
+      .mockup-section {
+        padding: 0 20px;
+        gap: 4px;
+      }
+
+      .mockup-web {
+        aspect-ratio: auto;
+        padding: 30px 20px;
+      }
+
+      .mockup-web img {
+        width: 100%;
+      }
+
+      .mockup-grid {
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .mockup-grid__left {
+        width: 100%;
+      }
+
+      .mockup-grid__left img {
+        height: auto;
+        aspect-ratio: 858 / 1138;
+      }
+
+      .mockup-grid__right-top img,
+      .mockup-grid__right-bottom img {
+        height: auto;
+        aspect-ratio: 858 / 568;
       }
 
       /* Motif Section Mobile */
@@ -2237,6 +2346,46 @@
     <section class="guide-icon-wrap" style="margin-bottom: 120px;">
       <div class="guide-icon-black-box">
         <img src="img/icon%20guide.png" alt="FOLTHAT Icon Guide" class="guide-icon-img">
+      </div>
+    </section>
+
+    <!-- Section: Brand Application Text -->
+    <section class="text-section animate-on-scroll">
+      <div class="text-section__label">Brand Application</div>
+      <div class="text-section__content">
+        <p>FOLTHAT의 브랜드 아이덴티티는 온라인과 오프라인 양쪽 접점에서 일관되게 적용됩니다. 온라인에서는 웹사이트를 중심으로 키 비주얼의 블루 포인트와 미니멀한 그리드 레이아웃을 기반으로, 제품의 접힘과 펼침이 직관적으로 전달되는 화면 구성을 설계했습니다. 데스크톱부터 모바일까지 반응형 디자인을 통해 어떤 디바이스에서도 FOLTHAT만의 세련된 브랜드 경험을 제공합니다.</p>
+        <p>오프라인에서는 명함, 전광판, 사이니지 등 물리적 매체에 브랜드 시스템을 적용하여 실제 공간에서의 브랜드 존재감을 구현합니다. 접이식 제품이라는 브랜드 특성에 맞춰 명함 역시 접는 구조를 반영한 디자인을 적용했으며, 대형 전광판과 옥외 광고에서는 키 비주얼과 슬로건이 도시 공간 속에서 강렬한 인상을 남길 수 있도록 설계했습니다.</p>
+      </div>
+    </section>
+
+    <!-- Section: Mockup Showcase -->
+    <section class="mockup-section animate-on-scroll">
+      <!-- Web Mockup -->
+      <div class="mockup-web">
+        <img src="img/mockup/img_mockup_web.png" alt="FOLTHAT Web Mockup">
+      </div>
+
+      <!-- Mockup Grid: Row 1 -->
+      <div class="mockup-grid">
+        <div class="mockup-grid__left hover-zoom">
+          <img src="img/mockup/img_mockup_01.png" alt="FOLTHAT Mockup 01">
+        </div>
+        <div class="mockup-grid__right">
+          <div class="mockup-grid__right-top hover-zoom">
+            <img src="img/mockup/img_mockup_02.png" alt="FOLTHAT Mockup 02">
+          </div>
+          <div class="mockup-grid__right-bottom hover-zoom">
+            <img src="img/mockup/img_mockup_03.png" alt="FOLTHAT Mockup 03">
+          </div>
+        </div>
+      </div>
+
+      <!-- Full-width Mockups -->
+      <div class="mockup-full hover-zoom">
+        <img src="img/mockup/img_mockup_04.png" alt="FOLTHAT Mockup 04">
+      </div>
+      <div class="mockup-full hover-zoom">
+        <img src="img/mockup/img_mockup_05.png" alt="FOLTHAT Mockup 05">
       </div>
     </section>
 
